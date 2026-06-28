@@ -1,0 +1,39 @@
+# robots.txt for https://thaivisafinder.com
+# Goal: let Google (and helpful AI search crawlers) index everything public.
+
+# ---- Default: all crawlers ----
+User-agent: *
+Allow: /
+# Private / non-indexable areas (add real paths as the site grows)
+Disallow: /admin/
+Disallow: /login/
+Disallow: /account/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /thank-you/
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+# Never block the assets Google needs to render the page:
+Allow: /images/
+Allow: /*.css$
+Allow: /*.js$
+
+# ---- Google ----
+User-agent: Googlebot
+Allow: /
+User-agent: Googlebot-Image
+Allow: /
+User-agent: Google-Extended      # Google's AI (Gemini / AI Overviews) — allow for citation visibility
+Allow: /
+
+# ---- Helpful AI search crawlers (improve citation visibility) ----
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://thaivisafinder.com/sitemap.xml
