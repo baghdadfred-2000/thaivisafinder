@@ -776,6 +776,7 @@ footer .legal b{color:#C3C3E2;}
         <h4>The tools</h4>
         <button class="flink" onclick="startQuiz()">Visa Finder</button>
         <button class="flink" onclick="goHome();scrollToId('faq')">Visa FAQ</button>
+        <a href="city-guide.html">City Guide</a>
         <a href="https://thaiholidaybudget.com/" target="_blank" rel="noopener">Budget Estimator ↗</a>
         <a href="about.html">About</a>
       </div>
@@ -807,7 +808,7 @@ footer .legal b{color:#C3C3E2;}
     </div>
   </div>
 </div>
-<script>window.PONG_PHOTOS={pattaya:'pattaya.jpg',chiangmai:'chiang-mai.jpg',krabi:'krabi.jpg',phuket:'phuket.jpg'};</script>
+<script>window.PONG_PHOTOS={pattaya:'pattaya.jpg',chiangmai:'chiang-mai.jpg',krabi:'krabi.jpg',phuket:'phuket.jpg',huahin:'hua-hin.jpg',khonkaen:'khon-kaen.jpg'};</script>
 <script>
 /* ============ Uncle imagery (use real brand assets, fall back to SVG) ============ */
 (function(){
@@ -899,6 +900,9 @@ const Q=[
     {v:'big',t:'Employee of an established/large foreign company',s:'Listed, or 3+ yrs old with solid revenue'},
     {v:'own',t:'I own / run my own overseas business',s:'Agency, e-commerce, SaaS'},
     {v:'free',t:'Freelancer with overseas clients',s:'Contracts, gig or solo'}]},
+  {id:'field',kicker:'Your field',title:'Is your work in a skilled or targeted industry?',help:'Thailand fast-tracks experts, founders and senior specialists in BOI-targeted fields — tech, science, engineering, digital, biotech and innovation — via the SMART and LTR routes.',show:a=>['remote','local'].includes(a.situation),options:[
+    {v:'targeted',t:'Yes — tech, science, engineering, digital or a startup',s:'BOI-targeted / highly skilled'},
+    {v:'other',t:'No — another field',s:'Plenty of other routes still fit you'}]},
   {id:'duration',kicker:'Timeline',title:'How long do you want to stay, realistically?',help:'Be honest — the cheapest option for 3 months is rarely right for 5 years.',options:[
     {v:'short',t:'A few months',s:'A long visit'},
     {v:'mid',t:'1–2 years'},
@@ -962,10 +966,6 @@ const Q=[
     {v:'essential',t:'Essential — my income depends on it'},
     {v:'nice',t:'Nice to have'},
     {v:'dont_need',t:'I do not really need it'}]},
-  {id:'water',kicker:'The sea',title:'Are you into diving, snorkelling or water sports?',help:'The Andaman and Gulf reefs are world-class; some islands are built around dive life.',options:[
-    {v:'love',t:'Love it — water is the whole point'},
-    {v:'bit',t:'A bit, now and then'},
-    {v:'no',t:'Not really my thing'}]},
   {id:'nightlife',kicker:'After dark',title:'What is your ideal nightlife?',help:'From world-famous party strips to sleepy villages where the lights go out early.',options:[
     {v:'big',t:'Big and buzzing — bars and clubs'},
     {v:'lively',t:'Lively, but not crazy'},
@@ -1179,6 +1179,8 @@ function recommend(a){
   if(a.situation==='local' || a.work_permit==='yes') mark('non_b');
   if(['yes','maybe'].includes(a.study_open) || a.situation==='study') mark('ed');
   if(a.situation==='remote' && a.employer==='big' && a.remote_income==='r3' && a.work_permit==='yes') mark('smart');
+  if(a.field==='targeted' && ((a.situation==='local'&&a.work_permit==='yes') || (a.situation==='remote'&&['big','own'].includes(a.employer)))) mark('smart');
+  if(a.field==='targeted' && a.situation==='local' && a.work_permit==='yes' && sv>=3) mark('ltr_hsp');
   if(a.situation==='medical') mark('medical');
   if(a.situation==='volunteer') mark('volunteer');
 
@@ -1186,9 +1188,9 @@ function recommend(a){
 
   /* duration */
   if(a.duration==='short'){add('exemption',45);add('tourist_tr',38);add('ed',12);add('dtv',8);add('medical',10);}
-  if(a.duration==='mid'){add('dtv',28);add('ed',22);add('tourist_tr',14);add('non_o_retire',20);add('marriage',20);add('non_o_family',18);add('privilege',16);}
-  if(a.duration==='long'){add('dtv',26);add('privilege',26);add('non_o_retire',24);add('non_ox',22);add('ltr_pension',30);add('ltr_wft',30);add('ltr_wealthy',30);add('ltr_hsp',26);add('marriage',24);add('non_o_family',20);add('exemption',-30);add('tourist_tr',-20);}
-  if(a.duration==='forever'){add('ltr_pension',38);add('ltr_wft',38);add('ltr_wealthy',38);add('ltr_hsp',32);add('non_ox',26);add('non_o_retire',30);add('marriage',32);add('non_o_family',28);add('non_b',26);add('privilege',24);add('exemption',-40);add('tourist_tr',-30);add('dtv',8);}
+  if(a.duration==='mid'){add('dtv',28);add('ed',22);add('tourist_tr',14);add('non_o_retire',20);add('marriage',20);add('non_o_family',18);add('privilege',16);add('smart',18);}
+  if(a.duration==='long'){add('dtv',26);add('privilege',26);add('non_o_retire',24);add('non_ox',22);add('ltr_pension',30);add('ltr_wft',30);add('ltr_wealthy',30);add('ltr_hsp',26);add('marriage',24);add('non_o_family',20);add('smart',22);add('exemption',-30);add('tourist_tr',-20);}
+  if(a.duration==='forever'){add('ltr_pension',38);add('ltr_wft',38);add('ltr_wealthy',38);add('ltr_hsp',32);add('non_ox',26);add('non_o_retire',30);add('marriage',32);add('non_o_family',28);add('non_b',26);add('privilege',24);add('smart',12);add('exemption',-40);add('tourist_tr',-30);add('dtv',8);}
   if(a.duration==='unsure'){add('dtv',20);add('privilege',14);add('exemption',10);add('tourist_tr',10);}
 
   /* situation */
@@ -1204,11 +1206,14 @@ function recommend(a){
   if(a.thai_spouse==='married'){add('marriage',30);}
   if(a.thai_spouse==='child'){add('non_o_family',28);}
 
+  /* skilled / targeted industry (SMART & LTR-HSP) */
+  if(a.field==='targeted'){add('smart',24);add('ltr_hsp',14);add('ltr_wft',6);}
+
   /* priority */
-  if(a.priority==='simple'){add('privilege',30);add('ltr_pension',20);add('ltr_wft',20);add('ltr_wealthy',20);add('ltr_hsp',16);add('non_o_retire',-6);add('non_b',-12);add('tourist_tr',10);}
+  if(a.priority==='simple'){add('privilege',30);add('ltr_pension',20);add('ltr_wft',20);add('ltr_wealthy',20);add('ltr_hsp',16);add('smart',14);add('non_o_retire',-6);add('non_b',-12);add('tourist_tr',10);}
   if(a.priority==='cheap'){add('exemption',22);add('tourist_tr',18);add('dtv',24);add('ed',16);add('non_o_retire',16);add('marriage',18);add('non_o_family',16);add('privilege',-20);}
   if(a.priority==='flex'){add('dtv',26);add('privilege',22);add('exemption',16);add('tourist_tr',14);add('ltr_wealthy',14);add('non_o_retire',-8);add('non_b',-10);}
-  if(a.priority==='stable'){add('ltr_pension',26);add('ltr_wft',26);add('ltr_wealthy',26);add('ltr_hsp',22);add('non_ox',20);add('non_o_retire',20);add('marriage',20);add('non_o_family',18);add('non_b',14);add('exemption',-20);add('tourist_tr',-16);}
+  if(a.priority==='stable'){add('ltr_pension',26);add('ltr_wft',26);add('ltr_wealthy',26);add('ltr_hsp',22);add('non_ox',20);add('non_o_retire',20);add('marriage',20);add('non_o_family',18);add('non_b',14);add('smart',16);add('exemption',-20);add('tourist_tr',-16);}
   if(a.priority==='tax'){add('ltr_pension',30);add('ltr_wft',30);add('ltr_wealthy',30);add('ltr_hsp',28);add('dtv',-6);add('privilege',-6);}
 
   if(bd>=4){add('privilege',8);add('ltr_pension',6);add('ltr_wft',6);}
@@ -1242,20 +1247,13 @@ function recommend(a){
 
 /* ============ LOCATIONS ============ */
 const PLACES=[
- {key:'chiangmai',img:'chiang-mai.jpg',name:'Chiang Mai',region:'The North',c1:'#2E3A95',c2:'#181845',desc:'The long-time digital-nomad capital — cafés, coworking, mountains and the best value of any hub. Burning season (Feb–Apr) is the catch.',tags:['Nomad scene','Great value','Nature'],budget:'$1,000–1,800 / mo',traits:{beach:0,mountains:4,urban:4,nightlife:3,calm:3,internet:5,expat:5,value:5,healthcare:4,airport:4,walkable:3,diving:0,wellness:4,culture:5,family:4,english:4,retiree:4,airBad:4}},
- {key:'bangkok',img:'bangkok.jpeg',name:'Bangkok',region:'Central',c1:'#C8102E',c2:'#6E0A18',desc:'World-class infrastructure, food and healthcare, the best airport links and a serious professional scene. Pricier and intense.',tags:['City energy','Transit & airports','Networking'],budget:'$1,500–2,800 / mo',traits:{beach:0,mountains:0,urban:5,nightlife:5,calm:1,internet:5,expat:5,value:2,healthcare:5,airport:5,walkable:5,diving:0,wellness:3,culture:4,family:5,english:4,retiree:3,airBad:2}},
- {key:'pattaya',name:'Pattaya / Jomtien',region:'Eastern Gulf coast',c1:'#2E6FB0',c2:'#163C66',desc:'Thailand\'s famous beach-resort city — buzzing nightlife, easy English-friendly living and Jomtien\'s modern beachfront condos. Brash in spots, but cheap, well-connected and ~2h from Bangkok.',tags:['Beach','Nightlife','Condo value'],budget:'$1,200–2,200 / mo',traits:{beach:4,mountains:0,urban:4,nightlife:5,calm:2,internet:4,expat:5,value:4,healthcare:4,airport:4,walkable:4,diving:2,wellness:2,culture:2,family:3,english:5,retiree:4,airBad:0}},
- {key:'phuket',name:'Phuket',region:'Andaman coast',c1:'#2E6FB0',c2:'#163C66',desc:'Beaches, growing coworking and the best island infrastructure — at island prices. Rawai/Cherng Talay beat Patong for value.',tags:['Beach','Infrastructure','Resorty'],budget:'$1,600–3,000 / mo',traits:{beach:5,mountains:1,urban:3,nightlife:4,calm:2,internet:4,expat:5,value:2,healthcare:5,airport:5,walkable:2,diving:4,wellness:3,culture:2,family:5,english:4,retiree:4,airBad:0}},
- {key:'samui',img:'kohsamui.jpg',name:'Koh Samui',region:'Gulf islands',c1:'#3A47A0',c2:'#181845',desc:'Beautiful beach base with solid amenities and a vibrant expat scene. The island trade-off: flights/ferries add up.',tags:['Beach','Expat scene','Premium'],budget:'$1,600–3,000 / mo',traits:{beach:5,mountains:1,urban:2,nightlife:4,calm:3,internet:4,expat:4,value:2,healthcare:4,airport:4,walkable:2,diving:3,wellness:4,culture:2,family:4,english:4,retiree:4,airBad:0}},
- {key:'phangan',name:'Koh Phangan',region:'Gulf islands',c1:'#4A57AE',c2:'#181845',desc:'The wellness-and-yoga island — improving WiFi, strong community and genuinely lovely. Quieter and a little rough-edged.',tags:['Wellness','Community','Beach'],budget:'$1,300–2,200 / mo',traits:{beach:5,mountains:1,urban:1,nightlife:4,calm:3,internet:3,expat:4,value:3,healthcare:2,airport:1,walkable:1,diving:3,wellness:5,culture:2,family:2,english:4,retiree:2,airBad:0}},
- {key:'huahin',name:'Hua Hin',region:'Gulf coast',c1:'#B5365A',c2:'#5E0F2A',desc:'Quiet, safe and ~3.5h from Bangkok, with a good Thai-Western mix and growing healthcare. A retiree favourite.',tags:['Calm','Retiree-friendly','Beach town'],budget:'$1,100–2,000 / mo',traits:{beach:4,mountains:0,urban:3,nightlife:2,calm:4,internet:4,expat:4,value:4,healthcare:4,airport:2,walkable:3,diving:0,wellness:3,culture:3,family:4,english:4,retiree:5,airBad:0}},
- {key:'pai',name:'Pai',region:'The North',c1:'#3F6FAE',c2:'#1F2F5A',desc:'Tiny, gorgeous mountain town with a slow, bohemian rhythm. Limited work infrastructure and the same burning-season air.',tags:['Mountains','Slow living','Bohemian'],budget:'$900–1,500 / mo',traits:{beach:0,mountains:5,urban:1,nightlife:2,calm:5,internet:2,expat:3,value:5,healthcare:1,airport:1,walkable:3,diving:0,wellness:4,culture:4,family:1,english:3,retiree:2,airBad:5}},
- {key:'chiangrai',name:'Chiang Rai',region:'The North',c1:'#2E3A95',c2:'#181845',desc:'Chiang Mai\'s charm at ~30% less, with real Thai culture and a small but growing community. Same northern air caveat.',tags:['Authentic','Great value','Culture'],budget:'$900–1,500 / mo',traits:{beach:0,mountains:4,urban:3,nightlife:1,calm:4,internet:3,expat:2,value:5,healthcare:3,airport:3,walkable:3,diving:0,wellness:3,culture:5,family:2,english:2,retiree:3,airBad:4}},
- {key:'krabi',img:'krabi.jpg',name:'Krabi / Ao Nang',region:'Andaman coast',c1:'#2E8FB0',c2:'#163F66',desc:'Dramatic limestone scenery and beach life, calmer than Phuket. Smaller community, fewer coworking options.',tags:['Beach','Nature','Quiet'],budget:'$1,200–2,200 / mo',traits:{beach:5,mountains:2,urban:2,nightlife:2,calm:4,internet:3,expat:3,value:4,healthcare:3,airport:4,walkable:2,diving:4,wellness:2,culture:3,family:3,english:4,retiree:3,airBad:0}},
- {key:'udon',name:'Udon Thani',region:'Isaan (NE)',c1:'#C8102E',c2:'#6A0A16',desc:'Affordable, deeply local northeastern city with a notable expat-married community and low cost of living.',tags:['Local life','Very affordable','Community'],budget:'$800–1,400 / mo',traits:{beach:0,mountains:0,urban:3,nightlife:2,calm:4,internet:3,expat:3,value:5,healthcare:3,airport:3,walkable:3,diving:0,wellness:1,culture:4,family:3,english:2,retiree:4,airBad:0}},
- {key:'lanta',name:'Koh Lanta',region:'Andaman islands',c1:'#1F8A8A',c2:'#0C3A3A',desc:'Laid-back, family-friendly Andaman island with surprisingly fast fibre and the well-known KoHub coworking space. World-class diving at Koh Haa and Hin Daeng, very low cost — but scooter-only, with no Grab or transit, reached by ferry from Krabi.',tags:['Diving','Great value','Laid-back'],budget:'$600–1,200 / mo',traits:{beach:5,mountains:1,urban:1,nightlife:2,calm:5,internet:4,expat:3,value:5,healthcare:2,airport:1,walkable:1,diving:5,wellness:3,culture:3,family:4,english:4,retiree:3,airBad:0}},
- {key:'tao',name:'Koh Tao',region:'Gulf islands',c1:'#256C9E',c2:'#0E2E4A',desc:'The diving capital of Thailand and a tight-knit diver and expat community, with fast cafe wifi but occasional power cuts. Healthcare is basic — serious care, the airport and big hospitals mean a ferry to Koh Samui. Sairee has the walkable nightlife; a scooter helps elsewhere.',tags:['Diving capital','Tight community','Beach'],budget:'$1,000–1,800 / mo',traits:{beach:5,mountains:1,urban:1,nightlife:3,calm:4,internet:4,expat:4,value:4,healthcare:1,airport:1,walkable:2,diving:5,wellness:3,culture:2,family:1,english:4,retiree:1,airBad:0}},
- {key:'chang',name:'Koh Chang',region:'Eastern Gulf (Trat)',c1:'#2E7D4F',c2:'#103A22',desc:'A large, hilly jungle island that stays quiet and very affordable, with a small but growing nomad scene. Coworking is limited and internet varies, so test before you commit; serious healthcare means a trip to Trat or the mainland. Hilly roads suit confident riders, plus songthaews; ferry from Trat.',tags:['Quiet','Jungle & beach','Very affordable'],budget:'$800–1,400 / mo',traits:{beach:5,mountains:3,urban:1,nightlife:2,calm:5,internet:2,expat:2,value:5,healthcare:1,airport:2,walkable:1,diving:3,wellness:2,culture:3,family:3,english:3,retiree:2,airBad:0}}
+ {key:'chiangmai',img:'chiang-mai.jpg',name:'Chiang Mai',region:'The North',c1:'#2E3A95',c2:'#181845',desc:'The long-time digital-nomad capital — cafés, coworking, mountains and the best value of any hub. Burning season (Feb–Apr) is the catch.',tags:['Nomad scene','Great value','Nature'],budget:'$1,400–2,200 / mo',traits:{beach:0,mountains:4,urban:4,nightlife:3,calm:3,internet:5,expat:5,value:5,healthcare:4,airport:4,walkable:3,diving:0,wellness:4,culture:5,family:4,english:4,retiree:4,airBad:4}},
+ {key:'bangkok',img:'bangkok.jpeg',name:'Bangkok',region:'Central',c1:'#C8102E',c2:'#6E0A18',desc:'World-class infrastructure, food and healthcare, the best airport links and a serious professional scene. Pricier and intense.',tags:['City energy','Transit & airports','Networking'],budget:'$1,900–3,300 / mo',traits:{beach:0,mountains:0,urban:5,nightlife:5,calm:1,internet:5,expat:5,value:2,healthcare:5,airport:5,walkable:5,diving:0,wellness:3,culture:4,family:5,english:4,retiree:3,airBad:2}},
+ {key:'pattaya',name:'Pattaya / Jomtien',region:'Eastern Gulf coast',c1:'#2E6FB0',c2:'#163C66',desc:'Thailand\'s famous beach-resort city — buzzing nightlife, easy English-friendly living and Jomtien\'s modern beachfront condos. Brash in spots, but cheap, well-connected and ~2h from Bangkok.',tags:['Beach','Nightlife','Condo value'],budget:'$1,600–2,700 / mo',traits:{beach:4,mountains:0,urban:4,nightlife:5,calm:2,internet:4,expat:5,value:4,healthcare:4,airport:4,walkable:4,diving:2,wellness:2,culture:2,family:3,english:5,retiree:4,airBad:0}},
+ {key:'phuket',name:'Phuket',region:'Andaman coast',c1:'#2E6FB0',c2:'#163C66',desc:'Beaches, growing coworking and the best island infrastructure — at island prices. Rawai/Cherng Talay beat Patong for value.',tags:['Beach','Infrastructure','Resorty'],budget:'$2,000–3,500 / mo',traits:{beach:5,mountains:1,urban:3,nightlife:4,calm:2,internet:4,expat:5,value:2,healthcare:5,airport:5,walkable:2,diving:4,wellness:3,culture:2,family:5,english:4,retiree:4,airBad:0}},
+ {key:'samui',img:'kohsamui.jpg',name:'Koh Samui',region:'Gulf islands',c1:'#3A47A0',c2:'#181845',desc:'Beautiful beach base with solid amenities and a vibrant expat scene. The island trade-off: flights/ferries add up.',tags:['Beach','Expat scene','Premium'],budget:'$1,800–3,100 / mo',traits:{beach:5,mountains:1,urban:2,nightlife:4,calm:3,internet:4,expat:4,value:2,healthcare:4,airport:4,walkable:2,diving:3,wellness:4,culture:2,family:4,english:4,retiree:4,airBad:0}},
+ {key:'huahin',name:'Hua Hin',region:'Gulf coast',c1:'#B5365A',c2:'#5E0F2A',desc:'Quiet, safe and ~3.5h from Bangkok, with a good Thai-Western mix and growing healthcare. A retiree favourite.',tags:['Calm','Retiree-friendly','Beach town'],budget:'$1,500–2,500 / mo',traits:{beach:4,mountains:0,urban:3,nightlife:2,calm:4,internet:4,expat:4,value:4,healthcare:4,airport:2,walkable:3,diving:0,wellness:3,culture:3,family:4,english:4,retiree:5,airBad:0}},
+ {key:'khonkaen',img:'khon-kaen.jpg',name:'Khon Kaen',region:'Isaan (NE)',c1:'#C8102E',c2:'#6A0A16',desc:'A modern Isaan university city on a scenic lake — the lowest cost of living of any hub, genuinely warm locals, a big regional teaching hospital and almost no tourist crowds. The expat scene is small and a little Thai goes a long way.',tags:['Most affordable','Authentic Isaan','University city'],budget:'$1,200–1,800 / mo',traits:{beach:0,mountains:0,urban:3,nightlife:2,calm:4,internet:3,expat:2,value:5,healthcare:4,airport:3,walkable:3,diving:0,wellness:1,culture:4,family:3,english:2,retiree:4,airBad:0}},
 ];
 const TRAIT_DIMS=['beach','mountains','urban','nightlife','calm','internet','expat','value','healthcare','airport','walkable','diving','wellness','culture','family','english','retiree'];
 function buildPrefs(a){
@@ -1267,7 +1265,7 @@ function buildPrefs(a){
   if(a.setting==='mountain'){w('mountains',3);w('calm',1);}
   if(a.setting==='mix'){w('urban',1);w('beach',1);w('mountains',1);}
   if(a.vibe==='social'){w('nightlife',3);w('expat',1);w('urban',1);}
-  if(a.vibe==='calm'){w('calm',3);w('mountains',1);}
+  if(a.vibe==='calm'){w('calm',3);w('mountains',1);w('wellness',2);}
   if(a.vibe==='water'){w('beach',2);w('diving',3);}
   if(a.vibe==='culture'){w('culture',3);w('mountains',1);}
   if(a.vibe==='value'){w('value',3);}
@@ -1287,12 +1285,10 @@ function buildPrefs(a){
   if(a.connectivity==='rarely'){w('calm',1);}
   if(a.internet==='essential'){w('internet',3);w('expat',1);}
   if(a.internet==='nice'){w('internet',1);}
-  if(a.water==='love'){w('diving',3);w('beach',1);}
-  if(a.water==='bit'){w('diving',1);}
   if(a.nightlife==='big'){w('nightlife',3);w('urban',1);}
   if(a.nightlife==='lively'){w('nightlife',2);}
   if(a.nightlife==='chill'){w('calm',2);w('nightlife',-1);}
-  if(a.nightlife==='none'){w('calm',2);w('nightlife',-2);}
+  if(a.nightlife==='none'){w('calm',2);w('nightlife',-2);w('wellness',1);}
   if(a.kids==='yes'){w('family',3);w('healthcare',1);w('english',1);}
   if(a.kids==='considering'){w('family',1);}
   if(a.around==='transit'){w('walkable',3);}
