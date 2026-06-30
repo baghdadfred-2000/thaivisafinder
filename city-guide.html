@@ -110,11 +110,11 @@ img{max-width:100%;display:block;}
 @media(max-width:680px){.topnav a.hide-sm{display:none;}.brand .bs{display:none;}}
 
 /* ---------- hero ---------- */
-.cg-hero{position:relative;overflow:hidden;color:#fff;min-height:clamp(380px,58vw,560px);display:flex;align-items:flex-end;}
+.cg-hero{position:relative;overflow:hidden;color:#fff;}
 .cg-hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;z-index:0;}
 .cg-hero::after{content:"";position:absolute;inset:0;z-index:1;background:
    linear-gradient(180deg, rgba(24,24,69,.30) 0%, rgba(24,24,69,.55) 55%, rgba(24,24,69,.86) 100%);}
-.cg-hero .wrap{position:relative;z-index:2;padding-top:clamp(48px,9vw,96px);padding-bottom:clamp(34px,5vw,58px);}
+.cg-hero .wrap{position:relative;z-index:2;padding-top:clamp(104px,16vw,200px);padding-bottom:clamp(40px,5vw,60px);}
 .cg-hero .eyebrow{color:#FFC2CB;}
 .cg-hero h1{font-size:clamp(2.5rem,7vw,4.4rem);font-weight:800;margin:.18em 0 0;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.25);}
 .cg-hero h1 .hl{color:#FF8FA0;}
@@ -187,21 +187,22 @@ img{max-width:100%;display:block;}
 .disc svg{width:20px;height:20px;flex:0 0 auto;color:var(--warn);margin-top:2px;}
 
 /* ---------- country (about Thailand) ---------- */
-.country{padding:clamp(40px,6vw,72px) 0;border-top:1px solid var(--line);background:var(--jade-deep);color:#DADAEE;scroll-margin-top:130px;}
-.country .eyebrow{color:#FF8FA0;}
-.country h2{color:#fff;font-size:clamp(2rem,5vw,3rem);font-weight:800;margin:.2em 0 .55em;}
-.country-grid{display:grid;grid-template-columns:.6fr 1fr;gap:42px;align-items:center;}
+.country{padding:clamp(40px,6vw,72px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);color:var(--ink);scroll-margin-top:130px;}
+.country .eyebrow{color:var(--mango-deep);}
+.country h2{color:var(--ink);font-size:clamp(2rem,5vw,3rem);font-weight:800;margin:.2em 0 .55em;}
+.country-grid{display:grid;grid-template-columns:1fr .62fr;gap:42px;align-items:center;}
 @media(max-width:860px){.country-grid{grid-template-columns:1fr;gap:26px;}}
-.country-map{background:#fff;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-lg);}
+.country-map{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);order:2;}
+.country-bio{order:1;}
 .country-map img{width:100%;max-width:330px;margin:0 auto;display:block;border-radius:10px;}
 .country-map figcaption{text-align:center;font-size:.8rem;color:var(--ink-soft);margin-top:11px;}
-.country-bio p{color:#CFCFE6;margin:0 0 1em;}
+.country-bio p{color:var(--ink);margin:0 0 1em;}
 .country-bio p:last-child{margin-bottom:0;}
 .country-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:0 0 22px;}
 @media(max-width:520px){.country-facts{grid-template-columns:1fr;}}
-.fact{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:var(--radius-sm);padding:11px 15px;}
-.fact .k{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FF8FA0;margin-bottom:2px;}
-.fact .v{font-weight:600;color:#fff;font-size:.94rem;line-height:1.35;}
+.fact{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);padding:11px 15px;}
+.fact .k{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mango-deep);margin-bottom:2px;}
+.fact .v{font-weight:600;color:var(--ink);font-size:.94rem;line-height:1.35;}
 
 /* ---------- footer ---------- */
 footer{background:var(--jade-deep);color:#B6B6D4;padding:46px 0 34px;font-size:.86rem;}
