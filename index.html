@@ -824,19 +824,25 @@ footer .legal b{color:#C3C3E2;}
   swap('uncleAirportImg','passportcontrol.jpg');
 })();
 
-/* ============ COOKIE CONSENT (in-memory for preview; persist on production) ============ */
+/* ============ COOKIE CONSENT (persisted to localStorage so the choice sticks across pages) ============ */
+const COOKIE_KEY='tvf_cookie_prefs';
 let cookiePrefs={analytics:false,ads:false,decided:false};
+function loadCookiePrefs(){
+  try{ const s=localStorage.getItem(COOKIE_KEY); if(s){ const p=JSON.parse(s); if(p&&typeof p==='object'){ cookiePrefs={analytics:!!p.analytics,ads:!!p.ads,decided:!!p.decided}; } } }catch(e){}
+}
+function saveCookiePrefs(){ try{ localStorage.setItem(COOKIE_KEY, JSON.stringify(cookiePrefs)); }catch(e){} }
 function showCookieBanner(){ if(!cookiePrefs.decided) document.getElementById('cookieBanner').classList.add('show'); }
 function hideCookieBanner(){ document.getElementById('cookieBanner').classList.remove('show'); }
-function acceptAllCookies(){ cookiePrefs={analytics:true,ads:true,decided:true}; reflectSw(); hideCookieBanner(); }
-function rejectCookies(){ cookiePrefs={analytics:false,ads:false,decided:true}; reflectSw(); hideCookieBanner(); }
-function saveCookieChoices(){ cookiePrefs.decided=true; hideCookieBanner(); goHome(); }
+function acceptAllCookies(){ cookiePrefs={analytics:true,ads:true,decided:true}; saveCookiePrefs(); reflectSw(); hideCookieBanner(); }
+function rejectCookies(){ cookiePrefs={analytics:false,ads:false,decided:true}; saveCookiePrefs(); reflectSw(); hideCookieBanner(); }
+function saveCookieChoices(){ cookiePrefs.decided=true; saveCookiePrefs(); hideCookieBanner(); goHome(); }
 function toggleSw(key){ cookiePrefs[key]=!cookiePrefs[key]; reflectSw(); }
 function reflectSw(){
   const a=document.getElementById('sw-analytics'), b=document.getElementById('sw-ads');
   if(a) a.setAttribute('aria-checked', cookiePrefs.analytics);
   if(b) b.setAttribute('aria-checked', cookiePrefs.ads);
 }
+loadCookiePrefs();
 setTimeout(showCookieBanner, 900);
 
 /* ============ PAGE ROUTING ============ */
@@ -1411,10 +1417,4 @@ function finish(){
     const rk=locRank[i]||('Match 0'+(i+1));
     const head=photo
       ? `<div class="loc-photo has-photo" style="background-image:url('${photo}')"><span class="rk">${rk}</span><span class="nm-on">${p.name}</span></div>`
-      : `<div class="loc-photo" style="background:linear-gradient(135deg,${p.c1},${p.c2})"><span class="rk">${rk}</span>${p.name}<span class="ph">📷 add your photo</span></div>`;
-    lg.innerHTML+=`<div class="loc">${head}<div class="loc-in"><div class="region">${p.region}</div><h3>${p.name}</h3><div class="desc">${p.desc}</div><div class="tags">${p.tags.map(t=>`<span>${t}</span>`).join('')}</div><div class="budget">${p.budget}<small>typical single-person all-in, 2026</small></div></div></div>`;
-  });
-}
-</script>
-</body>
-</html>
+      : `<div class="loc-photo" style="background:linear-gradient(135deg,${
