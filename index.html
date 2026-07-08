@@ -93,15 +93,15 @@ img{max-width:100%;display:block;}
 .topbar{position:sticky;top:0;z-index:50;background:rgba(255,246,233,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
 .topbar .inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px;}
 .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);}
-.brand .logo{width:40px;height:40px;border-radius:50%;flex:0 0 auto;overflow:hidden;background:var(--logo-img) center/cover no-repeat;box-shadow:0 1px 3px rgba(0,0,0,.18);}
-.brand .bt{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.04rem;line-height:1;}
-.brand .bs{font-size:.72rem;color:var(--ink-soft);letter-spacing:.04em;}
+.brand .logo{width:40px;height:40px;border-radius:50%;flex:0 0 auto;overflow:hidden;background:url('logo.png') center/cover no-repeat;box-shadow:0 1px 3px rgba(0,0,0,.18);}
+.brand .bt{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.78rem;letter-spacing:.08em;color:var(--mango);text-transform:uppercase;display:block;line-height:1;margin-bottom:2px;}
+.brand .bs{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.02rem;color:var(--ink);display:block;line-height:1.15;}
 .topnav{display:flex;align-items:center;gap:6px;}
 .topnav a{font-size:.9rem;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:8px 12px;border-radius:9px;}
 .topnav a:hover{color:var(--ink);background:var(--paper-2);}
 .topnav .tcta{background:var(--jade);color:#fff;}
 .topnav .tcta:hover{background:var(--jade-deep);color:#fff;}
-@media(max-width:680px){.topnav a.hide-sm{display:none;}.brand .bs{display:none;}}
+@media(max-width:680px){.topnav a.hide-sm{display:none;}}
 
 /* ---------- pages ---------- */
 #main{background:var(--paper);}
@@ -444,7 +444,7 @@ footer .legal b{color:#C3C3E2;}
   <div class="wrap inner">
     <a class="brand" href="#" onclick="goHome();return false;" aria-label="Uncle Pong's Thailand home">
       <span class="logo" role="img" aria-label="Uncle Pong logo"></span>
-      <span><span class="bt">Uncle Pong's</span><br><span class="bs">Thailand Visa Finder</span></span>
+      <span><span class="bt">Uncle Pong's</span><span class="bs">Thailand Visa Finder</span></span>
     </a>
     <nav class="topnav" aria-label="Primary">
       <a href="#" class="hide-sm" onclick="goHome();scrollToId('how');return false;">How it works</a>
