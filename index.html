@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <script>(function(){try{var t=localStorage.getItem("tvf-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();function toggleTheme(){var h=document.documentElement,n=h.getAttribute("data-theme")==="dark"?"light":"dark";h.setAttribute("data-theme",n);try{localStorage.setItem("tvf-theme",n);}catch(e){}}</script>
 <meta charset="UTF-8">
@@ -215,6 +215,7 @@ section.band{padding:clamp(32px,5vw,58px) 0;background:var(--paper);}
 .qstep h2{font-size:clamp(1.5rem,4vw,2.05rem);margin:10px 0 6px;}
 .qstep .help{color:var(--ink-soft);font-size:.94rem;margin-bottom:24px;}
 .opts{display:grid;gap:11px;}
+.multi-hint{font-size:.86rem;color:var(--ink-soft);margin:4px 2px 0;text-align:center;}
 .namefield{width:100%;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;font-size:1.15rem;color:var(--ink);transition:border-color .2s,box-shadow .2s;font-family:inherit;}
 .namefield:focus{outline:none;border-color:var(--mango);box-shadow:0 0 0 3px rgba(245,158,11,.18);}
 .namefield::placeholder{color:var(--ink-soft);opacity:.7;}
@@ -957,7 +958,8 @@ const Q=[
     {v:'s2',t:'$5,000 – $15,000'},
     {v:'s3',t:'$15,000 – $30,000',s:'Covers DTV & retirement thresholds'},
     {v:'s4',t:'$30,000 – $120,000'},
-    {v:'s5',t:'$120,000 – $1M'},
+    {v:'s5',t:'$120,000 – $500,000'},
+    {v:'s5b',t:'$500,000 – $1M',s:'Elite / Privilege starts to make sense'},
     {v:'s6',t:'$1M+ in total assets',s:'Opens LTR Wealthy Global Citizen'}]},
   {id:'passive_income',kicker:'Income — passive',title:'What\'s your annual pension / passive income?',help:'Pension, dividends, rent, interest — not salary or freelance work.',show:a=>a.situation==='retire'||a.age==='5059'||a.age==='60p',options:[
     {v:'p0',t:'Little or none',s:'Living mainly off savings'},
@@ -987,10 +989,14 @@ const Q=[
     {v:'flex',t:'Maximum flexibility — come & go'},
     {v:'stable',t:'Long-term stability & peace of mind'},
     {v:'tax',t:'Tax efficiency on my income'}]},
-  {id:'study_open',kicker:'Flexibility',title:'Would you consider studying as a route in?',help:'A language, cultural or skills course can unlock the ED or DTV soft-power routes.',show:a=>['remote','explore','study','local'].includes(a.situation)&&a.age!=='60p',options:[
-    {v:'yes',t:'Yes, happily — I\'d enjoy that'},
-    {v:'maybe',t:'Maybe, if it\'s the cleanest path'},
-    {v:'no',t:'No, not for me'}]},
+  {id:'interests',type:'multi',kicker:'Learning & culture',title:'Fancy learning something while you\'re here?',help:'Studying is a legitimate, low-cost route in. Thai language, a university course, martial arts and skills courses open the ED visa; Muay Thai, cooking and meditation open the DTV soft-power track. Tick any that appeal — or say you\'d rather not. (Select all that apply.)',show:a=>!['medical','volunteer'].includes(a.situation),options:[
+    {v:'thai_lang',t:'Learn the Thai language',s:'Language school → ED visa'},
+    {v:'university',t:'Study at a Thai university',s:'Degree, Master\'s or PhD → ED visa'},
+    {v:'muaythai',t:'Train Muay Thai / martial arts',s:'Registered camp → ED or DTV'},
+    {v:'cooking',t:'Take a Thai cooking course',s:'Soft-power → DTV'},
+    {v:'meditation',t:'Meditation / Buddhist study',s:'Temple programs → ED or DTV'},
+    {v:'skills',t:'Another skills course',s:'Business, tech, hospitality → ED'},
+    {v:'none',t:'No time or interest to learn',s:'Skip the study routes'}]},
   {id:'insurance',kicker:'Health',title:'Can you hold health insurance with $50k+ cover?',help:'Some routes (Non-OA, LTR) require it; get it on all of them anyway.',options:[
     {v:'yes',t:'Yes, I have or can get that'},
     {v:'no',t:'No / I\'d rather not'},
@@ -1087,8 +1093,11 @@ function renderStep(){
     const val=(answers[q.id]||'').replace(/"/g,'&quot;');
     html+=`<input id="nameInput" class="namefield" type="text" maxlength="24" autocomplete="off" placeholder="${q.placeholder||''}" value="${val}" oninput="onNameInput(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();if((this.value||'').trim())goNext();}">`;
   } else {
-    q.options.forEach(o=>{ const sel=chosen===o.v?'sel':'';
-      html+=`<button class="opt ${sel}" onclick="pick('${q.id}','${o.v}')"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span><span class="ot">${o.t}</span>${o.s?`<span class="os">${o.s}</span>`:''}</span></button>`; });
+    const isMulti=q.type==='multi';
+    q.options.forEach(o=>{ const sel=isMulti?((Array.isArray(chosen)&&chosen.includes(o.v))?'sel':''):(chosen===o.v?'sel':'');
+      const fn=isMulti?`pickMulti('${q.id}','${o.v}')`:`pick('${q.id}','${o.v}')`;
+      html+=`<button class="opt ${sel}" onclick="${fn}"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span><span><span class="ot">${o.t}</span>${o.s?`<span class="os">${o.s}</span>`:''}</span></button>`; });
+    if(isMulti){ html+=`<p class="multi-hint">Tick all that apply, then press Continue →</p>`; }
   }
   html+=`</div></div>`;
   document.getElementById('qstage').innerHTML=html;
@@ -1099,8 +1108,17 @@ function pick(id,v){ answers[id]=v;
   document.querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));
   event.currentTarget.classList.add('sel'); updateNext();
   setTimeout(()=>{ if(answers[id]===v && document.getElementById('quiz').classList.contains('open')) goNext(); },240); }
-function updateNext(){ document.getElementById('qnext').disabled=!answers[currentQ().id]; }
-function goNext(){ const q=currentQ(); if(!answers[q.id])return; pos++; rebuildOrder(); pos>=order.length?finish():renderStep(); }
+function pickMulti(id,v){
+  let arr=Array.isArray(answers[id])?answers[id].slice():[];
+  if(v==='none'){ arr=(arr.length===1&&arr[0]==='none')?[]:['none']; }
+  else { arr=arr.filter(x=>x!=='none'); arr=arr.includes(v)?arr.filter(x=>x!==v):arr.concat(v); }
+  answers[id]=arr;
+  const opts=currentQ().options;
+  document.querySelectorAll('.opt').forEach((b,i)=>{ if(opts[i]) b.classList.toggle('sel', arr.includes(opts[i].v)); });
+  updateNext(); }
+function answered(q){ const a=answers[q.id]; if(q.type==='multi') return Array.isArray(a)&&a.length>0; if(q.type==='text') return !!(a&&a.trim()); return !!a; }
+function updateNext(){ document.getElementById('qnext').disabled=!answered(currentQ()); }
+function goNext(){ const q=currentQ(); if(!answered(q))return; pos++; rebuildOrder(); pos>=order.length?finish():renderStep(); }
 function goBack(){ if(pos>0){pos--;renderStep();} }
 function adjustAnswers(){ document.getElementById('results').classList.remove('open'); document.getElementById('quiz').classList.add('open'); rebuildOrder(); pos=Math.max(0,order.length-1); renderStep(); window.scrollTo(0,0); }
 function restart(){ startQuiz(); }
@@ -1228,15 +1246,20 @@ function recommend(a){
   const mark=k=>elig[k]=true;
   const set=(k,p)=>{score[k]=(score[k]||0)+p;};
   const add=(k,p)=>{if(elig[k])set(k,p);};
-  const sv={s1:1,s2:2,s3:3,s4:4,s5:5,s6:6}[a.savings]||1;
+  const sv={s1:1,s2:2,s3:3,s4:4,s5:5,s5b:6,s6:7}[a.savings]||1;
   const bd={b1:1,b2:2,b3:3,b4:4,b5:5}[a.budget]||1;
   const age50=a.age==='5059'||a.age==='60p';
+  const interests=Array.isArray(a.interests)?a.interests:[];
+  const noStudy=interests.includes('none')||interests.length===0;
+  const edInterest=interests.some(x=>['thai_lang','university','muaythai','meditation','skills'].includes(x));
+  const softPower=interests.some(x=>['muaythai','cooking','meditation'].includes(x));
+  const wantsWork=a.situation==='local'||a.work_permit==='yes';
 
   /* eligibility */
   if(a.nationality!=='harder') mark('exemption');
   mark('tourist_tr');
   if(sv>=2 && ['remote','study','explore'].includes(a.situation)) mark('dtv');
-  if(sv>=2 && (a.study_open==='yes'||a.study_open==='maybe')) mark('dtv');
+  if(sv>=3 && softPower && !noStudy) mark('dtv');
   if(sv>=3 && a.situation==='remote') mark('dtv');
   if(age50 && (sv>=3 || ['p1','p2','p3'].includes(a.passive_income))) mark('non_o_retire');
   if(age50 && sv>=3 && a.insurance==='yes') mark('non_oa');
@@ -1245,11 +1268,11 @@ function recommend(a){
   if(a.situation==='remote' && a.employer==='big' && ['r2','r3'].includes(a.remote_income)) mark('ltr_wft');
   if(a.savings==='s6') mark('ltr_wealthy');
   if(a.situation==='local' && a.work_permit==='yes' && sv>=4) mark('ltr_hsp');
-  if(sv>=4 || (sv>=3&&bd>=4)) mark('privilege');
+  if(sv>=6) mark('privilege');
   if(a.thai_spouse==='married') mark('marriage');
   if(a.thai_spouse==='child' || a.situation==='family') mark('non_o_family');
   if(a.situation==='local' || a.work_permit==='yes') mark('non_b');
-  if(['yes','maybe'].includes(a.study_open) || a.situation==='study') mark('ed');
+  if(!noStudy && (edInterest || a.situation==='study')) mark('ed');
   if(a.situation==='remote' && a.employer==='big' && a.remote_income==='r3' && a.work_permit==='yes') mark('smart');
   if(a.field==='targeted' && ((a.situation==='local'&&a.work_permit==='yes') || (a.situation==='remote'&&['big','own'].includes(a.employer)))) mark('smart');
   if(a.field==='targeted' && a.situation==='local' && a.work_permit==='yes' && sv>=3) mark('ltr_hsp');
@@ -1262,7 +1285,7 @@ function recommend(a){
   if(a.duration==='short'){add('exemption',45);add('tourist_tr',38);add('ed',12);add('dtv',8);add('medical',10);}
   if(a.duration==='mid'){add('dtv',28);add('ed',22);add('tourist_tr',14);add('non_o_retire',20);add('marriage',20);add('non_o_family',18);add('privilege',16);add('smart',18);}
   if(a.duration==='long'){add('dtv',26);add('privilege',26);add('non_o_retire',24);add('non_ox',22);add('ltr_pension',30);add('ltr_wft',30);add('ltr_wealthy',30);add('ltr_hsp',26);add('marriage',24);add('non_o_family',20);add('smart',22);add('exemption',-30);add('tourist_tr',-20);}
-  if(a.duration==='forever'){add('ltr_pension',38);add('ltr_wft',38);add('ltr_wealthy',38);add('ltr_hsp',32);add('non_ox',26);add('non_o_retire',30);add('marriage',32);add('non_o_family',28);add('non_b',26);add('privilege',24);add('smart',12);add('exemption',-40);add('tourist_tr',-30);add('dtv',8);}
+  if(a.duration==='forever'){add('ltr_pension',38);add('ltr_wft',38);add('ltr_wealthy',38);add('ltr_hsp',32);add('non_ox',26);add('non_o_retire',30);add('marriage',32);add('non_o_family',28);add('non_b',26);add('privilege',24);add('smart',12);add('exemption',-40);add('tourist_tr',-30);add('dtv',8);add('marriage',-10);}
   if(a.duration==='unsure'){add('dtv',20);add('privilege',14);add('exemption',10);add('tourist_tr',10);}
 
   /* situation */
@@ -1275,16 +1298,16 @@ function recommend(a){
   if(a.situation==='volunteer'){add('volunteer',46);}
   if(a.situation==='explore'){add('exemption',26);add('tourist_tr',20);add('dtv',20);add('privilege',12);}
 
-  if(a.thai_spouse==='married'){add('marriage',30);}
+  if(a.thai_spouse==='married'){add('marriage',18);}
   if(a.thai_spouse==='child'){add('non_o_family',28);}
 
   /* skilled / targeted industry (SMART & LTR-HSP) */
   if(a.field==='targeted'){add('smart',24);add('ltr_hsp',14);add('ltr_wft',6);}
 
   /* priority */
-  if(a.priority==='simple'){add('privilege',30);add('ltr_pension',20);add('ltr_wft',20);add('ltr_wealthy',20);add('ltr_hsp',16);add('smart',14);add('non_o_retire',-6);add('non_b',-12);add('tourist_tr',10);}
+  if(a.priority==='simple'){add('privilege',16);add('ltr_pension',20);add('ltr_wft',20);add('ltr_wealthy',20);add('ltr_hsp',16);add('smart',14);add('non_o_retire',16);add('ed',10);add('non_b',-12);add('tourist_tr',10);}
   if(a.priority==='cheap'){add('exemption',22);add('tourist_tr',18);add('dtv',24);add('ed',16);add('non_o_retire',16);add('marriage',18);add('non_o_family',16);add('privilege',-20);}
-  if(a.priority==='flex'){add('dtv',26);add('privilege',22);add('exemption',16);add('tourist_tr',14);add('ltr_wealthy',14);add('non_o_retire',-8);add('non_b',-10);}
+  if(a.priority==='flex'){add('dtv',26);add('privilege',14);add('exemption',16);add('tourist_tr',14);add('ltr_wealthy',14);add('non_b',-10);}
   if(a.priority==='stable'){add('ltr_pension',26);add('ltr_wft',26);add('ltr_wealthy',26);add('ltr_hsp',22);add('non_ox',20);add('non_o_retire',20);add('marriage',20);add('non_o_family',18);add('non_b',14);add('smart',16);add('exemption',-20);add('tourist_tr',-16);}
   if(a.priority==='tax'){add('ltr_pension',30);add('ltr_wft',30);add('ltr_wealthy',30);add('ltr_hsp',28);add('dtv',-6);add('privilege',-6);}
 
@@ -1299,6 +1322,21 @@ function recommend(a){
   if(a.connectivity==='often'){add('dtv',6);add('privilege',5);add('exemption',3);}
   if(a.kids==='yes'){add('non_o_family',6);add('marriage',4);add('ltr_wft',3);}
   if(a.internet==='essential'&&a.situation==='remote'){add('dtv',5);}
+
+  /* interests -> Education (ED) & DTV soft-power */
+  if(edInterest && !noStudy) add('ed',30);
+  if(interests.includes('thai_lang')) add('ed',8);
+  if(interests.includes('university')) add('ed',8);
+  if(softPower) add('dtv',20);
+  if(interests.includes('muaythai')){ add('dtv',6); add('ed',6); }
+  if(wantsWork) add('ed',-26);
+
+  /* Non-O Retirement stays a top choice for eligible over-50s */
+  if(age50) add('non_o_retire',36);
+
+  /* Premium (Elite/Privilege): only $500k+ eligible, and not worth it for a short stay */
+  if(a.duration==='short') add('privilege',-45);
+  if(sv>=7) add('privilege',8);
 
   /* affordability gate */
   let gate=null;
