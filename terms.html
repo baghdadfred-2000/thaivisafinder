@@ -136,23 +136,23 @@ footer a:hover{color:#fff;text-decoration:underline;}
 </main>
 <!-- ===== AD ZONE (above footer) ===== -->
 <style>
-  .ad-zone{width:100%;max-width:1080px;margin:44px auto 0;padding:0 22px;box-sizing:border-box;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;}
-  .ad-zone .ad-rail{flex:0 0 160px;}
-  .ad-zone .ad-banner{flex:0 0 728px;display:flex;justify-content:center;}
-  .ad-zone iframe{border:0;display:block;overflow:hidden;}
-  @media(max-width:1060px){.ad-zone .ad-rail{display:none;}.ad-zone{max-width:728px;justify-content:center;}}
-  @media(max-width:768px){.ad-zone{padding:0 10px;}.ad-zone .ad-banner{flex:1 1 auto;max-width:100%;overflow-x:auto;}}
+  .ad-banner-zone{width:100%;margin:44px auto 0;padding:0 22px;box-sizing:border-box;display:flex;justify-content:center;}
+  .ad-banner-zone iframe{border:0;display:block;overflow:hidden;max-width:100%;}
+  .ad-rail{position:fixed;top:50%;transform:translateY(-50%);z-index:40;line-height:0;}
+  .ad-rail iframe{border:0;display:block;overflow:hidden;}
+  .ad-rail-left{left:16px;}
+  .ad-rail-right{right:16px;}
+  @media(max-width:1449px){.ad-rail{display:none;}}
+  @media(max-width:768px){.ad-banner-zone{padding:0 10px;}.ad-banner-zone iframe{overflow-x:auto;}}
 </style>
-<div class="ad-zone" aria-label="Advertisement">
-  <div class="ad-rail ad-rail-left">
-    <iframe title="Advertisement" width="160" height="600" scrolling="no" frameborder="0" srcdoc='<body style="margin:0"><script type="text/javascript">atOptions={"key":"03cee2be37447b3a61cf812719b96645","format":"iframe","height":600,"width":160,"params":{}};</script><script type="text/javascript" src="https://www.highperformanceformat.com/03cee2be37447b3a61cf812719b96645/invoke.js"></script></body>'></iframe>
-  </div>
-  <div class="ad-banner">
-    <iframe title="Advertisement" width="728" height="90" scrolling="no" frameborder="0" srcdoc='<body style="margin:0"><script type="text/javascript">atOptions={"key":"167029ed1bd365dff490be4d9d295756","format":"iframe","height":90,"width":728,"params":{}};</script><script type="text/javascript" src="https://www.highperformanceformat.com/167029ed1bd365dff490be4d9d295756/invoke.js"></script></body>'></iframe>
-  </div>
-  <div class="ad-rail ad-rail-right">
-    <iframe title="Advertisement" width="160" height="600" scrolling="no" frameborder="0" srcdoc='<body style="margin:0"><script type="text/javascript">atOptions={"key":"03cee2be37447b3a61cf812719b96645","format":"iframe","height":600,"width":160,"params":{}};</script><script type="text/javascript" src="https://www.highperformanceformat.com/03cee2be37447b3a61cf812719b96645/invoke.js"></script></body>'></iframe>
-  </div>
+<div class="ad-rail ad-rail-left" aria-label="Advertisement">
+  <iframe title="Advertisement" width="160" height="600" scrolling="no" frameborder="0" srcdoc='<body style="margin:0"><script type="text/javascript">atOptions={"key":"03cee2be37447b3a61cf812719b96645","format":"iframe","height":600,"width":160,"params":{}};</script><script type="text/javascript" src="https://www.highperformanceformat.com/03cee2be37447b3a61cf812719b96645/invoke.js"></script></body>'></iframe>
+</div>
+<div class="ad-rail ad-rail-right" aria-label="Advertisement">
+  <iframe title="Advertisement" width="160" height="600" scrolling="no" frameborder="0" srcdoc='<body style="margin:0"><script type="text/javascript">atOptions={"key":"03cee2be37447b3a61cf812719b96645","format":"iframe","height":600,"width":160,"params":{}};</script><script type="text/javascript" src="https://www.highperformanceformat.com/03cee2be37447b3a61cf812719b96645/invoke.js"></script></body>'></iframe>
+</div>
+<div class="ad-banner-zone" aria-label="Advertisement">
+  <iframe title="Advertisement" width="728" height="90" scrolling="no" frameborder="0" srcdoc='<body style="margin:0"><script type="text/javascript">atOptions={"key":"167029ed1bd365dff490be4d9d295756","format":"iframe","height":90,"width":728,"params":{}};</script><script type="text/javascript" src="https://www.highperformanceformat.com/167029ed1bd365dff490be4d9d295756/invoke.js"></script></body>'></iframe>
 </div>
 
 <footer>
@@ -184,3 +184,4 @@ footer a:hover{color:#fff;text-decoration:underline;}
 </footer>
 </body>
 </html>
+      
