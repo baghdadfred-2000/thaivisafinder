@@ -1,0 +1,10 @@
+﻿# OneDrive / FUSE transient artifacts
+.fuse_hidden*
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+*.swp
+*.tmp

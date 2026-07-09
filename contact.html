@@ -80,6 +80,18 @@ li{margin:.35em 0;}
   text-decoration:none;font-weight:700;padding:13px 24px;border-radius:12px;font-size:1.02rem;
   border:0;cursor:pointer;font-family:inherit;}
 .contact-btn:hover{background:#9C0B22;}
+.contact-btn:disabled{opacity:.7;cursor:default;}
+
+/* Sent notification toast */
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);
+  background:var(--jade);color:#fff;font-weight:700;font-size:1rem;
+  padding:14px 22px;border-radius:12px;box-shadow:0 14px 34px -10px rgba(0,0,0,.45);
+  display:flex;align-items:center;gap:10px;z-index:60;opacity:0;pointer-events:none;
+  transition:opacity .3s ease,transform .3s ease;max-width:calc(100% - 32px);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast .tick{display:inline-flex;width:22px;height:22px;border-radius:50%;background:#fff;
+  color:var(--jade);align-items:center;justify-content:center;font-size:.85rem;font-weight:800;flex:0 0 auto;}
+
 @media(max-width:560px){ h1{font-size:1.7rem;} .meta-grid{grid-template-columns:1fr;} .grid2{grid-template-columns:1fr;} }
 @media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
 
@@ -235,6 +247,9 @@ footer a:hover{color:#fff;text-decoration:underline;}
     </div>
   </div>
 </main>
+<div id="sentToast" class="toast" role="status" aria-live="polite">
+  <span class="tick" aria-hidden="true">✓</span><span>Your message was sent</span>
+</div>
 <!-- ===== AD BANNER (above footer) ===== -->
 <style>
   .ad-banner-zone{width:100%;margin:44px auto 0;padding:0 22px;box-sizing:border-box;display:flex;justify-content:center;}
@@ -274,12 +289,48 @@ footer a:hover{color:#fff;text-decoration:underline;}
 </footer>
 <script>
   (function(){
-    // Keep the Netlify notification subject in sync with the chosen topic.
+    var form    = document.getElementById('contactForm');
     var topic   = document.getElementById('c-topic');
     var subject = document.getElementById('c-subject');
+    var btn     = form.querySelector('button[type="submit"]');
+    var toast   = document.getElementById('sentToast');
+    var toastTimer;
+
+    // Keep the Netlify notification subject in sync with the chosen topic.
     function syncSubject(){ subject.value = topic.value; }
     topic.addEventListener('change', syncSubject);
     syncSubject();
+
+    function showToast(){
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 5000);
+    }
+
+    // Submit to Netlify in the background so the visitor stays on the page.
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!form.checkValidity()){ form.reportValidity(); return; }
+      syncSubject();
+      var label = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function(res){
+        if(!res.ok){ throw new Error('Bad response'); }
+        form.reset();
+        syncSubject();
+        showToast();
+      }).catch(function(){
+        alert('Sorry — something went wrong sending your message. Please email support@thaivisafinder.com and we’ll get right back to you.');
+      }).finally(function(){
+        btn.disabled = false;
+        btn.textContent = label;
+      });
+    });
   })();
 </script>
 </body>
