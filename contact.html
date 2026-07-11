@@ -192,7 +192,7 @@ footer a:hover{color:#fff;text-decoration:underline;}
 
       <form id="contactForm" class="cform" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact">
-        <input type="hidden" name="subject" id="c-subject" value="General question">
+        <input type="hidden" name="subject" id="c-subject" value="ThaiVisaFinder: General question">
         <p class="hp" hidden><label>Don’t fill this out if you’re human: <input name="bot-field"></label></p>
         <div class="grid2">
           <div class="field">
@@ -298,7 +298,7 @@ footer a:hover{color:#fff;text-decoration:underline;}
     var toastTimer;
 
     // Keep the Netlify notification subject in sync with the chosen topic.
-    function syncSubject(){ subject.value = topic.value; }
+    function syncSubject(){ subject.value = 'ThaiVisaFinder: ' + topic.value; }
     topic.addEventListener('change', syncSubject);
     syncSubject();
 
