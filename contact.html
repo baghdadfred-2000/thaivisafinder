@@ -190,10 +190,11 @@ footer a:hover{color:#fff;text-decoration:underline;}
       <h2>Send us a message</h2>
       <p class="form-note">Choose a topic and send us your message. We reply to the email address you provide, usually within 24 hours.</p>
 
-      <form id="contactForm" class="cform" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact">
+      <form id="contactForm" class="cform" name="contact" method="POST" action="https://api.web3forms.com/submit">
+        <input type="hidden" name="access_key" value="c394c121-5e53-49ec-be2b-3fdb67c9a3a3">
         <input type="hidden" name="subject" id="c-subject" value="ThaiVisaFinder: General question">
-        <p class="hp" hidden><label>Don’t fill this out if you’re human: <input name="bot-field"></label></p>
+        <input type="hidden" name="from_name" value="ThaiVisaFinder Contact Form">
+        <input type="checkbox" name="botcheck" class="hp" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="grid2">
           <div class="field">
             <label for="c-name">Your name</label>
@@ -305,12 +306,12 @@ footer a:hover{color:#fff;text-decoration:underline;}
       var label = btn.textContent;
       btn.disabled = true;
       btn.textContent = 'Sending…';
-      fetch('/', {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString()
-      }).then(function(res){
-        if(!res.ok){ throw new Error('Bad response'); }
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      }).then(function(res){ return res.json(); }).then(function(data){
+        if(!data.success){ throw new Error(data.message||'Bad response'); }
         form.reset();
         syncSubject();
         showToast();
