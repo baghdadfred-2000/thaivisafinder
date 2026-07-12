@@ -6,13 +6,16 @@
 <script>(function(){try{var t=localStorage.getItem("tvf-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();function toggleTheme(){var h=document.documentElement,n=h.getAttribute("data-theme")==="dark"?"light":"dark";h.setAttribute("data-theme",n);try{localStorage.setItem("tvf-theme",n);}catch(e){}}</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#12143B">
+<meta name="theme-color" content="#181845">
 <meta name="color-scheme" content="light only">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <title>Thailand Visa Finder: Which Visa Is Right for You? 2026</title>
 <meta name="description" content="Free Thailand visa finder: compare all 18 legal long-stay routes (retirement, DTV, LTR, marriage, Privilege) with real 2026 costs, pros and cons.">
 <meta name="author" content="Uncle Pong's Thailand (Genext Information Systems)">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://thaivisafinder.com/">
+<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Uncle Pong's Thailand Visa Finder">
 <meta property="og:url" content="https://thaivisafinder.com/">
@@ -22,6 +25,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_US">
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Thailand Visa Finder 2026 — Which Visa Is Right for You?">
 <meta name="twitter:description" content="Compare all 18 legal Thailand long-stay visas with real costs, pros and cons. Free, honest, no agency nonsense.">
@@ -45,326 +49,180 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,420;0,9..144,560;0,9..144,640;1,9..144,380;1,9..144,480&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Spline+Sans+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* =====================================================================
-   THAIVISAFINDER — "Royal Standard" edition
-   A quiet-luxury, editorial re-imagining. Deep lacquer navy, Thai-silk
-   red, brass gold, warm ivory. Serif voice: Fraunces. Body: Hanken.
-   ===================================================================== */
 :root{
-  --ink:#191B2C;
-  --ink-soft:#5A5E76;
-  --paper:#F8F6F0;
-  --paper-2:#EFECE2;
+  /* Thai flag palette: deep navy blue + Thai red + white/cream */
+  --ink:#1B1A38;           /* deep navy-charcoal text */
+  --ink-soft:#4D4B6B;
+  --paper:#FBF9F3;         /* warm white */
+  --paper-2:#EFEDE4;
   --surface:#FFFFFF;
-  --jade:#22265E;          /* primary lacquer navy */
-  --jade-deep:#12143B;     /* deepest navy — dark bands, footer */
-  --jade-soft:#E7E8F4;
-  --mango:#BE1231;         /* Thai silk red */
-  --mango-deep:#93122A;
-  --mango-soft:#F9E3E7;
-  --chili:#BE1231;
-  --chili-soft:#F9E3E7;
-  --gold:#B08A3E;          /* brass */
-  --gold-soft:#F1E7CF;
-  --sand:#D9DAE6;
-  --line:#E4E0D3;
-  --line-dark:rgba(255,255,255,.14);
-  --warn:#A56618; --warn-bg:#FAEED4;
-  --danger:#AC3A2B; --danger-bg:#F8E1DA;
+  --jade:#26276B;          /* PRIMARY = Thai navy blue */
+  --jade-deep:#181845;     /* deep navy (dark sections/footer) */
+  --jade-soft:#E6E6F3;     /* light navy tint */
+  --mango:#C8102E;         /* Thai red (accents, top pick) */
+  --mango-deep:#9C0B22;
+  --mango-soft:#FBE2E6;    /* light red tint */
+  --chili:#C8102E;         /* red CTA */
+  --chili-soft:#FBE2E6;
+  --gold:#26276B;
+  --sand:#D7D8E6;          /* slate-blue neutral */
+  --line:#E6E3D7;
+  --warn:#B26B1E; --warn-bg:#FBEBD0;
+  --danger:#B23A2B; --danger-bg:#F8E0D9;
   --logo-img:url('logo.png');
-  --radius:22px; --radius-sm:14px;
-  --shadow:0 1px 2px rgba(24,20,40,.05), 0 16px 40px -18px rgba(24,20,40,.22);
-  --shadow-lg:0 2px 6px rgba(24,20,40,.07), 0 36px 80px -28px rgba(24,20,40,.38);
-  --maxw:1180px;
-  --ease:cubic-bezier(.22,.75,.22,1);
-  --serif:"Fraunces","Georgia",serif;
-  --sans:"Hanken Grotesk",system-ui,sans-serif;
-  --mono:"Spline Sans Mono",ui-monospace,monospace;
+  --radius:20px; --radius-sm:13px;
+  --shadow:0 1px 2px rgba(70,45,10,.05), 0 14px 34px -16px rgba(70,45,10,.22);
+  --shadow-lg:0 2px 6px rgba(70,45,10,.06), 0 30px 64px -22px rgba(70,45,10,.34);
+  --maxw:1090px;
+  --ease:cubic-bezier(.2,.75,.2,1);
 }
 *{box-sizing:border-box;}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:var(--paper);color-scheme:light only;}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;}
-h1,h2,h3{font-family:var(--serif);font-weight:560;line-height:1.06;letter-spacing:-.01em;margin:0;}
-h4{font-family:var(--sans);margin:0;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:#FBF9F3;color-scheme:light only;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;}
+h1,h2,h3,h4{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;line-height:1.05;letter-spacing:-.015em;margin:0;}
 p{margin:0 0 1em;}
 a{color:var(--jade);}
-.mono{font-family:var(--mono);font-feature-settings:"tnum";}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px;}
+.mono{font-family:"Spline Sans Mono",ui-monospace,monospace;font-feature-settings:"tnum";}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--mango-deep);}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
 button{font-family:inherit;cursor:pointer;}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:6px;}
+:focus-visible{outline:3px solid var(--jade);outline-offset:2px;border-radius:6px;}
 img{max-width:100%;display:block;}
-::selection{background:var(--gold-soft);}
-
-/* eyebrow — brass rule + mono caps */
-.eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);}
-.eyebrow::before{content:"";width:34px;height:1px;background:var(--gold);opacity:.8;}
-.eyebrow.center::after{content:"";width:34px;height:1px;background:var(--gold);opacity:.8;}
-
-/* reveal-on-scroll */
-.rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
-.rv.in{opacity:1;transform:none;}
-.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
-
-/* ---------- announcement ribbon ---------- */
-.ribbon{background:var(--jade-deep);color:#C8C9E4;font-size:.78rem;letter-spacing:.02em;}
-.ribbon .inner{display:flex;align-items:center;justify-content:center;gap:10px;min-height:38px;padding:6px 26px;text-align:center;}
-.ribbon b{color:#fff;font-weight:600;}
-.ribbon .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex:0 0 auto;box-shadow:0 0 0 3px rgba(176,138,62,.25);}
 
 /* ---------- top bar ---------- */
-.topbar{position:sticky;top:0;z-index:50;background:rgba(248,246,240,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
-.topbar .inner{display:flex;align-items:center;justify-content:space-between;height:74px;gap:16px;}
-.brand{display:flex;align-items:center;gap:13px;text-decoration:none;color:var(--ink);}
-.brand .logo{width:46px;height:46px;border-radius:50%;flex:0 0 auto;overflow:hidden;background:var(--logo-img) center/cover no-repeat;box-shadow:0 0 0 2px var(--surface),0 0 0 3.5px var(--gold),0 4px 10px rgba(0,0,0,.18);}
-.brand .bt{font-family:var(--mono);font-weight:600;font-size:.62rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;display:block;line-height:1;margin-bottom:4px;}
-.brand .bs{font-family:var(--serif);font-weight:600;font-size:1.14rem;color:var(--ink);display:block;line-height:1.05;letter-spacing:0;}
-.topnav{display:flex;align-items:center;gap:2px;}
-.topnav a{font-size:.9rem;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:9px 13px;border-radius:10px;transition:color .15s,background .15s;}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,246,233,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.topbar .inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px;}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);}
+.brand .logo{width:40px;height:40px;border-radius:50%;flex:0 0 auto;overflow:hidden;background:url('logo.png') center/cover no-repeat;box-shadow:0 1px 3px rgba(0,0,0,.18);}
+.brand .bt{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.78rem;letter-spacing:.08em;color:var(--mango);text-transform:uppercase;display:block;line-height:1;margin-bottom:2px;}
+.brand .bs{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.02rem;color:var(--ink);display:block;line-height:1.15;}
+.topnav{display:flex;align-items:center;gap:6px;}
+.topnav a{font-size:.9rem;font-weight:600;color:var(--ink-soft);text-decoration:none;padding:8px 12px;border-radius:9px;}
 .topnav a:hover{color:var(--ink);background:var(--paper-2);}
-.topnav .tcta{background:var(--jade);color:#fff;margin-left:10px;padding:11px 20px;border-radius:100px;box-shadow:var(--shadow);}
+.topnav .tcta{background:var(--jade);color:#fff;}
 .topnav .tcta:hover{background:var(--jade-deep);color:#fff;}
-@media(max-width:760px){.topnav a.hide-sm{display:none;}.topbar .inner{height:66px;}.brand .bs{font-size:1rem;}}
-
-.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;padding:0;margin-left:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:50%;cursor:pointer;transition:background .15s,color .15s;flex:0 0 auto;}
-.theme-toggle:hover{background:var(--paper-2);}
-.theme-toggle svg{width:17px;height:17px;}
-.theme-toggle .i-sun{display:none;}
-.theme-toggle .i-moon{display:block;}
-:root[data-theme="dark"] .theme-toggle .i-sun{display:block;}
-:root[data-theme="dark"] .theme-toggle .i-moon{display:none;}
+@media(max-width:680px){.topnav a.hide-sm{display:none;}}
 
 /* ---------- pages ---------- */
-#main{background:var(--paper);position:relative;}
+#main{background:var(--paper);}
 .page{display:none;background:var(--paper);}
-.page.active{display:block;animation:fade .4s var(--ease);}
+.page.active{display:block;animation:fade .35s var(--ease);}
 @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
 
-/* ---------- HERO — lacquer navy, editorial ---------- */
-.hero{position:relative;overflow:hidden;background:var(--jade-deep);color:#E6E7F5;padding:clamp(56px,7.5vw,104px) 0 clamp(120px,12vw,170px);}
-.hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 58%;transform:scale(1.06);animation:heroDrift 28s ease-in-out infinite alternate;}
-@keyframes heroDrift{from{transform:scale(1.06) translateY(0);}to{transform:scale(1.13) translateY(-16px);}}
-.hero-bg .shade{position:absolute;inset:0;background:
-  linear-gradient(98deg, rgba(14,16,48,.95) 0%, rgba(14,16,48,.88) 32%, rgba(14,16,48,.58) 60%, rgba(16,18,52,.36) 100%),
-  linear-gradient(to bottom, rgba(14,16,48,.5), rgba(14,16,48,.1) 32%, rgba(14,16,48,.18) 60%, var(--jade-deep) 100%);}
-.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
-  radial-gradient(72% 90% at 82% -10%, rgba(190,18,49,.18), transparent 62%),
-  radial-gradient(50% 70% at -6% 108%, rgba(176,138,62,.12), transparent 60%);}
-.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.3;background-image:
-  linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-  linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
-  background-size:64px 64px;
-  -webkit-mask-image:radial-gradient(70% 68% at 50% 30%,#000 0%,transparent 100%);
-  mask-image:radial-gradient(70% 68% at 50% 30%,#000 0%,transparent 100%);}
-.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(36px,5vw,72px);align-items:center;}
-@media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:44px;}}
-.hero .eyebrow{color:#D9BC77;}
-.hero .eyebrow::before{background:#D9BC77;}
-.hero h1{font-size:clamp(2.7rem,6vw,4.6rem);font-weight:480;color:#fff;margin-top:20px;max-width:15ch;}
-.hero h1 em{font-style:italic;font-weight:480;color:#E8C57C;}
-.hero .lede{font-size:clamp(1.04rem,1.7vw,1.22rem);color:#B9BBDD;max-width:46ch;margin-top:1.3rem;line-height:1.7;}
-.hero .lede b{color:#fff;font-weight:600;}
-.trust{display:flex;flex-wrap:wrap;gap:9px;margin:30px 0 34px;}
-.chip{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:#D5D6EC;background:rgba(255,255,255,.06);border:1px solid var(--line-dark);padding:8px 15px;border-radius:100px;backdrop-filter:blur(4px);}
-.chip svg{width:14px;height:14px;color:#D9BC77;flex:0 0 auto;}
-.cta{display:inline-flex;align-items:center;gap:12px;background:var(--chili);color:#fff;border:none;font-size:1.04rem;font-weight:700;padding:18px 34px;border-radius:100px;box-shadow:0 12px 34px -10px rgba(190,18,49,.55);transition:transform .25s var(--ease),background .2s,box-shadow .25s;}
-.cta:hover{transform:translateY(-2px);background:#A70F2B;box-shadow:0 18px 44px -12px rgba(190,18,49,.65);}
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--paper);padding:clamp(32px,5.5vw,64px) 0 clamp(26px,4vw,44px);}
+.hero::before{content:"";position:absolute;inset:0;background:
+   radial-gradient(60% 70% at 88% 10%, rgba(200,16,46,.10), transparent 60%),
+   radial-gradient(50% 60% at 5% 90%, rgba(38,39,107,.09), transparent 60%);pointer-events:none;}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:42px;align-items:center;}
+@media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:26px;}}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.2rem);font-weight:800;}
+.hero h1 .hl{color:var(--jade);}
+.hero .lede{font-size:clamp(1.05rem,2vw,1.24rem);color:var(--ink-soft);max-width:38ch;margin-top:1rem;}
+.uncle-quote{display:inline-flex;align-items:center;gap:8px;background:var(--mango-soft);border:1px solid #F0C2C9;color:#9C0B22;font-weight:600;font-size:.86rem;padding:7px 14px;border-radius:100px;margin-bottom:18px;}
+.trust{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 26px;}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--ink-soft);background:var(--surface);border:1px solid var(--line);padding:7px 13px;border-radius:100px;}
+.chip svg{width:14px;height:14px;color:var(--jade);}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--chili);color:#fff;border:none;font-size:1.05rem;font-weight:700;padding:16px 28px;border-radius:100px;box-shadow:var(--shadow);transition:transform .25s var(--ease),background .2s;}
+.cta:hover{transform:translateY(-2px);background:#A50D26;}
 .cta .arrow{transition:transform .3s var(--ease);}
-.cta:hover .arrow{transform:translateX(5px);}
-.cta-note{font-size:.84rem;color:#9EA0C6;margin-top:16px;}
-.hero-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
-.ghost-link{color:#D5D6EC;font-weight:600;font-size:.95rem;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.28);padding-bottom:3px;transition:color .15s,border-color .15s;}
-.ghost-link:hover{color:#fff;border-color:#E8C57C;}
+.cta:hover .arrow{transform:translateX(4px);}
+.cta-note{font-size:.83rem;color:var(--ink-soft);margin-top:12px;}
 
-/* uncle hero portrait — layered gallery frame */
-.uncle-card{position:relative;max-width:430px;margin-left:auto;}
-@media(max-width:920px){.uncle-card{margin:0 auto;}}
-.uncle-card .frame{position:relative;background:var(--surface);border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg);}
-.uncle-card::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid rgba(217,188,119,.5);border-radius:28px;pointer-events:none;}
-.uncle-card::after{content:"";position:absolute;top:-40px;right:-30px;width:130px;height:130px;background:
-  radial-gradient(circle, rgba(232,197,124,.35), transparent 65%);pointer-events:none;}
-.uncle-portrait{position:relative;aspect-ratio:4/4.45;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%, #2A2E6B, #12143B 120%);}
-.uncle-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 22%;transform:scale(1.02);transition:transform 6s var(--ease);}
-.uncle-card:hover .uncle-portrait img{transform:scale(1.07);}
-.uncle-portrait .grade{position:absolute;inset:0;background:linear-gradient(to top, rgba(18,20,59,.55), transparent 42%);}
-.speech{position:absolute;left:18px;right:18px;bottom:78px;z-index:3;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.6);border-radius:16px;padding:13px 17px;font-size:.9rem;color:var(--ink);box-shadow:var(--shadow);font-family:var(--serif);font-style:italic;font-weight:420;}
-.speech::after{content:"";position:absolute;left:30px;bottom:-8px;width:16px;height:16px;background:rgba(255,255,255,.94);border-right:1px solid rgba(255,255,255,.6);border-bottom:1px solid rgba(255,255,255,.6);transform:rotate(45deg);}
-.uncle-meta{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;align-items:center;gap:12px;padding:14px 18px;color:#fff;}
-.uncle-meta .sig{width:38px;height:38px;border-radius:50%;overflow:hidden;background:var(--logo-img) center/cover no-repeat;flex:0 0 auto;box-shadow:0 0 0 2px rgba(255,255,255,.7);}
-.uncle-meta .nm{font-family:var(--serif);font-weight:560;font-size:1.06rem;line-height:1.1;}
-.uncle-meta .rl{font-size:.76rem;color:#D9DAF0;opacity:.9;}
-.uncle-meta .badge{margin-left:auto;font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:#12143B;background:#E8C57C;padding:6px 10px;border-radius:100px;font-weight:600;white-space:nowrap;}
+/* uncle hero card */
+.uncle-card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow-lg);overflow:hidden;}
+.uncle-portrait{position:relative;aspect-ratio:1/.82;background:
+   radial-gradient(120% 90% at 50% 0%, #EAEBF7, #A9ADDE 130%);display:grid;place-items:center;overflow:hidden;}
+.uncle-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 40%;}
+.uncle-svg{width:62%;}
+.uncle-meta{padding:16px 20px;}
+.uncle-meta .nm{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.05rem;}
+.uncle-meta .rl{font-size:.82rem;color:var(--ink-soft);}
+.speech{position:absolute;left:16px;bottom:62%;background:#fff;border:1px solid var(--line);border-radius:16px;padding:11px 15px;font-size:.86rem;max-width:74%;box-shadow:var(--shadow);font-weight:500;}
+.speech::after{content:"";position:absolute;left:26px;bottom:-9px;width:18px;height:18px;background:#fff;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg);}
 
-/* ---------- stat bar — bridges out of the hero ---------- */
-.statbar{position:relative;z-index:5;margin-top:calc(clamp(120px,12vw,170px) * -0.62);}
-.statbar .grid{display:grid;grid-template-columns:repeat(4,1fr);background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-lg);overflow:hidden;}
-@media(max-width:820px){.statbar .grid{grid-template-columns:repeat(2,1fr);}}
-.stat{padding:clamp(20px,2.6vw,32px) clamp(18px,2.4vw,30px);border-right:1px solid var(--line);}
-.stat:last-child{border-right:none;}
-@media(max-width:820px){.stat:nth-child(2){border-right:none;}.stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line);}}
-.stat .v{font-family:var(--serif);font-weight:560;font-size:clamp(1.7rem,3vw,2.4rem);color:var(--jade);line-height:1;}
-.stat .v small{font-size:.55em;color:var(--gold);}
-.stat .l{font-size:.8rem;color:var(--ink-soft);margin-top:7px;font-weight:500;}
+.notice{margin-top:30px;display:flex;gap:13px;background:var(--warn-bg);border:1px solid #EAD09B;border-radius:var(--radius-sm);padding:15px 17px;font-size:.88rem;color:#6b4f1e;}
+.notice svg{width:19px;height:19px;flex:0 0 auto;color:var(--warn);margin-top:2px;}
+.notice b{color:#6b4f1e;}
 
 /* ---------- bands / sections ---------- */
-section.band{padding:clamp(64px,8vw,110px) 0;background:var(--paper);}
-.band.tight{padding-top:clamp(40px,5vw,64px);}
+section.band{padding:clamp(32px,5vw,58px) 0;background:var(--paper);}
 .band.alt{background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-.band.jungle{background:var(--jade-deep);color:#C9CAE6;position:relative;overflow:hidden;}
-.band.jungle::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 90% 0%, rgba(190,18,49,.16), transparent 60%);pointer-events:none;}
+.band.jungle{background:var(--jade-deep);color:#DADAEE;}
 .band.jungle h2,.band.jungle h3{color:#fff;}
-.band.jungle .eyebrow{color:#D9BC77;}
-.band.jungle .eyebrow::before{background:#D9BC77;}
-.sec-head{max-width:64ch;margin-bottom:clamp(30px,4vw,50px);}
-.sec-head.center{margin-left:auto;margin-right:auto;text-align:center;}
-.sec-head h2{font-size:clamp(1.9rem,4vw,3rem);margin-top:16px;font-weight:520;}
-.sec-head h2 em{font-style:italic;color:var(--mango);}
-.band.jungle .sec-head h2 em{color:#E8C57C;}
-.sec-head p{color:var(--ink-soft);margin:1em 0 0;font-size:1.03rem;}
-.band.jungle .sec-head p{color:#A9ABCF;}
+.band.jungle.has-banner .thailand-banner{display:block;width:100%;height:clamp(140px,22vw,260px);object-fit:cover;object-position:center 40%;border-radius:16px;margin-bottom:clamp(26px,4vw,44px);}
+.band.jungle .eyebrow{color:#FF8FA0;}
+.sec-head{max-width:62ch;margin-bottom:26px;}
+.sec-head h2{font-size:clamp(1.7rem,3.8vw,2.5rem);margin-top:9px;}
+.sec-head p{color:var(--ink-soft);margin-top:.6em;}
+.band.jungle .sec-head p{color:#BFBFDE;}
 
-/* notice */
-.notice{display:flex;gap:14px;background:var(--warn-bg);border:1px solid #E9D3A2;border-radius:var(--radius-sm);padding:17px 20px;font-size:.89rem;color:#6b4f1e;box-shadow:0 8px 24px -18px rgba(70,45,10,.4);}
-.notice svg{width:19px;height:19px;flex:0 0 auto;color:var(--warn);margin-top:2px;}
-.notice b{color:#5d4014;}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+@media(max-width:760px){.steps3{grid-template-columns:1fr;}}
+.howcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
+.howcard .ic{width:46px;height:46px;border-radius:13px;background:var(--mango-soft);display:grid;place-items:center;font-size:1.5rem;margin-bottom:13px;}
+.howcard h3{font-size:1.2rem;margin-bottom:7px;}
+.howcard p{font-size:.92rem;color:var(--ink-soft);margin:0;}
 
-/* how it works — editorial numbered cards */
-.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:how;}
-@media(max-width:820px){.steps3{grid-template-columns:1fr;}}
-.howcard{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(26px,3vw,38px);transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
-.howcard:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);}
-.howcard .num{font-family:var(--serif);font-style:italic;font-weight:420;font-size:3rem;line-height:1;color:var(--gold);opacity:.85;}
-.howcard h3{font-size:1.42rem;margin:16px 0 10px;font-weight:560;}
-.howcard p{font-size:.94rem;color:var(--ink-soft);margin:0;}
-.howcard::after{content:"";position:absolute;left:clamp(26px,3vw,38px);top:86px;width:44px;height:1px;background:var(--line);}
+.routes{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;}
+@media(max-width:680px){.routes{grid-template-columns:1fr;}}
+.rt{display:flex;gap:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:var(--radius-sm);padding:13px 15px;}
+.rt .dot{width:9px;height:9px;border-radius:50%;background:var(--mango);margin-top:7px;flex:0 0 auto;}
+.rt .b{font-weight:700;font-size:.93rem;color:#fff;}
+.rt .s{font-size:.81rem;color:#BFBFDE;}
 
-/* cinematic divider (thailand.jpg) */
-.cinema{position:relative;overflow:hidden;}
-.cinema img{width:100%;height:clamp(200px,30vw,380px);object-fit:cover;object-position:center 42%;display:block;transform:scale(1.04);}
-.cinema .grade{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(18,20,59,.42), transparent 34%, transparent 62%, rgba(18,20,59,.55));}
-.cinema .cap{position:absolute;left:0;right:0;bottom:18px;text-align:center;color:#EDEEF8;font-family:var(--mono);font-size:.66rem;letter-spacing:.32em;text-transform:uppercase;}
+/* entry tips */
+.tips{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;}
+@media(max-width:780px){.tips{grid-template-columns:1fr;}}
+.tip-img{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--jade-soft);aspect-ratio:4/3;display:grid;place-items:center;}
+.tip-img img{width:100%;height:100%;object-fit:cover;}
+.tip-list{list-style:none;margin:0;padding:0;}
+.tip-list li{display:flex;gap:11px;margin-bottom:13px;font-size:.94rem;}
+.tip-list li .k{width:26px;height:26px;border-radius:8px;background:var(--jade-soft);color:var(--jade-deep);display:grid;place-items:center;flex:0 0 auto;font-size:.95rem;}
 
-/* routes — ledger table feel */
-.routes{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(28px,4vw,64px);border-top:1px solid var(--line-dark);}
-@media(max-width:760px){.routes{grid-template-columns:1fr;}}
-.rt{display:flex;gap:16px;align-items:baseline;padding:15px 4px;border-bottom:1px solid var(--line-dark);transition:background .2s;}
-.rt:hover{background:rgba(255,255,255,.035);}
-.rt .idx{font-family:var(--mono);font-size:.68rem;color:#D9BC77;min-width:22px;letter-spacing:.05em;}
-.rt .b{font-weight:600;font-size:.96rem;color:#fff;display:block;}
-.rt .s{font-size:.8rem;color:#9EA0C6;display:block;margin-top:1px;}
-
-/* meet uncle pong */
-.meet{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(36px,5vw,80px);align-items:center;}
-@media(max-width:860px){.meet{grid-template-columns:1fr;}}
-.arch{position:relative;max-width:420px;margin:0 auto;}
-.arch .ph{border-radius:230px 230px 26px 26px;overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/4.7;}
-.arch .ph img{width:100%;height:100%;object-fit:cover;object-position:center 18%;}
-.arch::before{content:"";position:absolute;inset:-16px;border:1px solid var(--gold);opacity:.45;border-radius:246px 246px 34px 34px;pointer-events:none;}
-.arch .stamp{position:absolute;right:-18px;bottom:34px;width:96px;height:96px;border-radius:50%;background:var(--surface);box-shadow:var(--shadow-lg);display:grid;place-items:center;padding:9px;}
-.arch .stamp img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
-.meet h2{font-size:clamp(1.9rem,3.8vw,2.9rem);font-weight:520;margin-top:16px;}
-.meet .quote{font-family:var(--serif);font-style:italic;font-weight:420;font-size:clamp(1.12rem,2vw,1.34rem);color:var(--ink);line-height:1.55;border-left:2px solid var(--gold);padding-left:22px;margin:26px 0;}
-.meet .bio{color:var(--ink-soft);font-size:1rem;max-width:56ch;}
-.promise{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--radius-sm);padding:18px 22px;margin:26px 0 30px;box-shadow:var(--shadow);}
-.promise .em{font-size:1.5rem;line-height:1;}
-.promise p{margin:0;font-size:.92rem;color:var(--ink-soft);}
-.promise b{color:var(--ink);}
-.meet .row{display:flex;gap:18px;align-items:center;flex-wrap:wrap;}
-.btn-line{display:inline-flex;align-items:center;gap:9px;background:transparent;border:1.5px solid var(--jade);color:var(--jade);font-weight:700;font-size:.95rem;padding:14px 26px;border-radius:100px;text-decoration:none;transition:background .2s,color .2s;}
-.btn-line:hover{background:var(--jade);color:#fff;}
-
-/* entry checklist */
-.tips{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(36px,5vw,72px);align-items:center;}
-@media(max-width:860px){.tips{grid-template-columns:1fr;}}
-.tip-list{list-style:none;margin:26px 0 0;padding:0;}
-.tip-list li{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--line);font-size:.96rem;color:var(--ink-soft);}
-.tip-list li:first-child{border-top:1px solid var(--line);}
-.tip-list b{color:var(--ink);}
-.tip-list .k{font-family:var(--serif);font-style:italic;font-weight:420;color:var(--gold);font-size:1.3rem;line-height:1.2;min-width:30px;}
-.tip-img{position:relative;}
-.tip-img .ph{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/3;}
-.tip-img .ph img{width:100%;height:100%;object-fit:cover;}
-.tip-img::before{content:"";position:absolute;inset:14px -14px -14px 14px;border:1px solid var(--gold);opacity:.4;border-radius:var(--radius);pointer-events:none;z-index:0;}
-.tip-img .tag-cap{position:absolute;left:18px;bottom:18px;background:rgba(18,20,59,.82);backdrop-filter:blur(4px);color:#fff;font-size:.76rem;font-weight:600;padding:8px 14px;border-radius:100px;z-index:2;}
-
-/* ---------- cities mosaic ---------- */
-.city-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-@media(max-width:1020px){.city-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:520px){.city-grid{grid-template-columns:1fr;}}
-.city{position:relative;border-radius:var(--radius-sm);overflow:hidden;aspect-ratio:3/3.7;box-shadow:var(--shadow);}
-.city img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);}
-.city:hover img{transform:scale(1.06);}
-.city .grade{position:absolute;inset:0;background:linear-gradient(to top, rgba(14,15,42,.82), rgba(14,15,42,.06) 55%);}
-.city .in{position:absolute;left:0;right:0;bottom:0;padding:18px 18px 16px;color:#fff;}
-.city .rg{font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:#E8C57C;display:block;margin-bottom:5px;}
-.city h3{font-size:1.34rem;font-weight:560;color:#fff;}
-.city .bd{font-family:var(--mono);font-size:.74rem;color:#D5D6EC;margin-top:6px;display:block;}
-.map-note{margin-top:20px;display:flex;gap:26px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(22px,3vw,34px);box-shadow:var(--shadow);flex-wrap:wrap;}
-.map-note .mp{flex:0 0 150px;}
-.map-note .mp img{width:150px;}
-.map-note h3{font-size:1.4rem;font-weight:560;margin-bottom:8px;}
-.map-note p{margin:0;color:var(--ink-soft);font-size:.94rem;max-width:58ch;}
-.map-note .go{margin-left:auto;}
-@media(max-width:760px){.map-note .go{margin-left:0;}}
-
-/* ---------- FAQ ---------- */
-.faq{max-width:800px;margin:0 auto;}
-.faq-item{border-bottom:1px solid var(--line);}
-.faq-item:first-child{border-top:1px solid var(--line);}
-details.fq summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;padding:24px 4px;font-family:var(--serif);font-weight:560;font-size:1.18rem;color:var(--ink);}
-details.fq summary::-webkit-details-marker{display:none;}
-details.fq summary .pl{flex:0 0 auto;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:1.1rem;font-family:var(--sans);font-weight:400;transition:transform .3s var(--ease),background .2s;}
-details.fq[open] summary .pl{transform:rotate(45deg);background:var(--gold-soft);}
-details.fq .fa{padding:0 44px 24px 4px;color:var(--ink-soft);font-size:.96rem;}
-details.fq .fa p{margin:0;}
-
-/* ---------- final CTA ---------- */
-.finale{position:relative;overflow:hidden;background:var(--jade-deep);color:#C9CAE6;}
-.finale::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(56% 80% at 12% 110%, rgba(190,18,49,.3), transparent 60%),
-  radial-gradient(40% 60% at 92% -10%, rgba(176,138,62,.2), transparent 60%);pointer-events:none;}
-.finale .grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,5vw,70px);align-items:center;padding:clamp(64px,8vw,110px) 0;}
-@media(max-width:860px){.finale .grid{grid-template-columns:1fr;}}
-.finale h2{color:#fff;font-size:clamp(2rem,4.4vw,3.3rem);font-weight:500;margin-top:16px;}
-.finale h2 em{font-style:italic;color:#E8C57C;}
-.finale p{color:#A9ABCF;max-width:50ch;margin-top:1em;}
-.finale .ph{position:relative;max-width:380px;margin:0 auto;border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg);transform:rotate(2deg);}
-.finale .ph img{width:100%;display:block;}
-.finale .ph .cap{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent, rgba(18,20,59,.85));color:#fff;font-size:.8rem;padding:36px 16px 14px;text-align:center;font-family:var(--serif);font-style:italic;}
+.sister{background:var(--mango-soft);border:1px dashed #ECC2C9;border-radius:var(--radius);padding:24px 26px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;}
+.sister .em{font-size:2.2rem;}
+.sister h3{font-size:1.25rem;margin-bottom:4px;}
+.sister p{margin:0;font-size:.92rem;color:var(--ink-soft);}
+.sister a{margin-left:auto;background:var(--jade);color:#fff;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:100px;white-space:nowrap;}
+@media(max-width:620px){.sister a{margin-left:0;}}
+.faq{display:grid;gap:13px;}
+.faq-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:18px 22px;}
+.faq-item h3{font-size:1.08rem;margin-bottom:6px;}
+.faq-item p{margin:0;color:var(--ink-soft);font-size:.93rem;}
+.faq-item p a{font-weight:600;}
 
 /* ---------- quiz ---------- */
 .quiz{position:fixed;inset:0;z-index:90;background:var(--paper);display:none;flex-direction:column;}
 .quiz.open{display:flex;}
 .quiz-top{border-bottom:1px solid var(--line);background:var(--surface);}
-.quiz-top .inner{display:flex;align-items:center;gap:14px;height:62px;max-width:780px;margin:0 auto;padding:0 18px;}
+.quiz-top .inner{display:flex;align-items:center;gap:14px;height:60px;max-width:760px;margin:0 auto;padding:0 18px;}
 .qback{background:none;border:none;display:inline-flex;align-items:center;gap:5px;color:var(--ink-soft);font-size:.9rem;font-weight:600;padding:8px;border-radius:8px;}
 .qback:hover{color:var(--ink);}
 .qback[disabled]{opacity:.35;pointer-events:none;}
-.progress{flex:1;height:6px;background:var(--paper-2);border-radius:100px;overflow:hidden;}
-.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--mango));border-radius:100px;width:0;transition:width .45s var(--ease);}
-.qcount{font-size:.76rem;color:var(--ink-soft);white-space:nowrap;font-family:var(--mono);}
+.progress{flex:1;height:8px;background:var(--paper-2);border-radius:100px;overflow:hidden;}
+.progress i{display:block;height:100%;background:var(--mango);border-radius:100px;width:0;transition:width .45s var(--ease);}
+.qcount{font-size:.78rem;color:var(--ink-soft);white-space:nowrap;font-family:"Spline Sans Mono",monospace;}
 .qclose{background:none;border:none;color:var(--ink-soft);font-size:1.5rem;line-height:1;padding:6px 8px;border-radius:8px;}
 .quiz-body{flex:1;overflow-y:auto;}
-.qstage{max-width:700px;margin:0 auto;padding:clamp(26px,5vw,52px) 18px 140px;}
+.qstage{max-width:680px;margin:0 auto;padding:clamp(22px,5vw,46px) 18px 130px;}
 .qstep{animation:fade .38s var(--ease);}
-.uncle-mini{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
-.uncle-mini .av{width:44px;height:44px;border-radius:50%;background:var(--logo-img) center/cover no-repeat,var(--mango);overflow:hidden;flex:0 0 auto;display:grid;place-items:center;box-shadow:0 0 0 2px var(--surface),0 0 0 3px var(--gold);}
+.uncle-mini{display:flex;align-items:center;gap:11px;margin-bottom:20px;}
+.uncle-mini .av{width:42px;height:42px;border-radius:50%;background:var(--mango);overflow:hidden;flex:0 0 auto;display:grid;place-items:center;}
 .uncle-mini .av img{width:100%;height:100%;object-fit:cover;}
-.uncle-mini .av svg{display:none;}
-.uncle-mini .qz{background:var(--surface);border:1px solid var(--line);border-radius:2px 16px 16px 16px;padding:10px 15px;font-size:.88rem;color:var(--ink-soft);font-family:var(--serif);font-style:italic;}
-.qstep .kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600;}
-.qstep .kicker::before{content:"";width:26px;height:1px;background:var(--gold);}
-.qstep h2{font-family:var(--serif);font-weight:540;font-size:clamp(1.6rem,4vw,2.25rem);margin:14px 0 8px;}
-.qstep .help{color:var(--ink-soft);font-size:.95rem;margin-bottom:26px;}
+.uncle-mini .qz{background:var(--surface);border:1px solid var(--line);border-radius:0 14px 14px 14px;padding:9px 14px;font-size:.86rem;color:var(--ink-soft);font-style:italic;}
+.qstep .kicker{font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;color:var(--mango-deep);font-weight:700;}
+.qstep h2{font-size:clamp(1.5rem,4vw,2.05rem);margin:10px 0 6px;}
+.qstep .help{color:var(--ink-soft);font-size:.94rem;margin-bottom:24px;}
 .opts{display:grid;gap:11px;}
 .multi-hint{font-size:.86rem;color:var(--ink-soft);margin:4px 2px 0;text-align:center;}
-.namefield{width:100%;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:17px 19px;font-size:1.15rem;color:var(--ink);transition:border-color .2s,box-shadow .2s;font-family:inherit;}
-.namefield:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(176,138,62,.18);}
+.namefield{width:100%;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;font-size:1.15rem;color:var(--ink);transition:border-color .2s,box-shadow .2s;font-family:inherit;}
+.namefield:focus{outline:none;border-color:var(--mango);box-shadow:0 0 0 3px rgba(245,158,11,.18);}
 .namefield::placeholder{color:var(--ink-soft);opacity:.7;}
-.opt{display:flex;align-items:center;gap:14px;text-align:left;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;font-size:1rem;color:var(--ink);transition:border-color .2s,background .2s,transform .12s,box-shadow .2s;width:100%;}
-.opt:hover{border-color:var(--gold);transform:translateY(-1px);box-shadow:var(--shadow);}
+.opt{display:flex;align-items:center;gap:14px;text-align:left;background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:16px 18px;font-size:1rem;color:var(--ink);transition:border-color .2s,background .2s,transform .12s;width:100%;}
+.opt:hover{border-color:var(--mango);transform:translateY(-1px);}
 .opt.sel{border-color:var(--jade);background:var(--jade-soft);}
 .opt .tick{width:22px;height:22px;border-radius:50%;border:2px solid var(--sand);flex:0 0 auto;display:grid;place-items:center;transition:.2s;}
 .opt.sel .tick{border-color:var(--jade);background:var(--jade);}
@@ -372,139 +230,135 @@ details.fq .fa p{margin:0;}
 .opt .tick svg{width:12px;height:12px;color:#fff;opacity:0;}
 .opt .ot{font-weight:700;}
 .opt .os{display:block;font-size:.82rem;color:var(--ink-soft);font-weight:400;margin-top:2px;}
-.qnav{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,var(--paper) 32%);padding:18px 18px 24px;}
-.qnav .inner{max-width:700px;margin:0 auto;display:flex;}
-.qnext{flex:1;background:var(--jade);color:#fff;border:none;font-size:1rem;font-weight:700;padding:17px;border-radius:100px;transition:background .2s,transform .12s;box-shadow:var(--shadow);}
+.qnav{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,var(--paper) 32%);padding:18px 18px 22px;}
+.qnav .inner{max-width:680px;margin:0 auto;display:flex;}
+.qnext{flex:1;background:var(--jade);color:#fff;border:none;font-size:1rem;font-weight:700;padding:16px;border-radius:100px;transition:background .2s,transform .12s;box-shadow:var(--shadow);}
 .qnext:hover{background:var(--jade-deep);transform:translateY(-1px);}
 .qnext[disabled]{background:var(--sand);color:#fff;pointer-events:none;box-shadow:none;}
 
 /* ---------- results ---------- */
 .results{display:none;background:var(--paper);}
 .results.open{display:block;}
-.res-hero{background:var(--jade-deep);color:#C9CAE6;padding:clamp(40px,5.5vw,68px) 0 clamp(34px,4.5vw,54px);position:relative;overflow:hidden;}
-.res-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 80% at 92% 0%, rgba(190,18,49,.28),transparent 60%),radial-gradient(40% 60% at 0% 110%, rgba(176,138,62,.14),transparent 60%);}
+.res-hero{background:var(--jade-deep);color:#DADAEE;padding:clamp(34px,5vw,60px) 0 clamp(30px,4vw,48px);position:relative;overflow:hidden;}
+.res-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 80% at 92% 0%, rgba(200,16,46,.24),transparent 60%);}
 .res-hero .inner{position:relative;}
-.res-hero .uncle-row{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
-.res-hero .uncle-row .av{width:56px;height:56px;border-radius:50%;background:var(--logo-img) center/cover no-repeat,var(--mango);overflow:hidden;flex:0 0 auto;box-shadow:0 0 0 2px rgba(232,197,124,.8);}
+.res-hero .uncle-row{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.res-hero .uncle-row .av{width:54px;height:54px;border-radius:50%;background:var(--mango);overflow:hidden;flex:0 0 auto;border:2px solid rgba(255,255,255,.3);}
 .res-hero .uncle-row .av img{width:100%;height:100%;object-fit:cover;}
-.res-hero .uncle-row .av svg{display:none;}
-.res-hero .eyebrow{color:#D9BC77;}
-.res-hero .eyebrow::before{background:#D9BC77;}
-.res-hero h1{color:#fff;font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,4.6vw,3rem);margin:10px 0 0;max-width:26ch;}
-.res-hero p{color:#A9ABCF;max-width:60ch;margin:16px 0 0;}
-.res-hero .summary{margin-top:22px;display:flex;flex-wrap:wrap;gap:9px;}
-.schip{font-size:.8rem;background:rgba(255,255,255,.08);border:1px solid var(--line-dark);color:#E4E5F3;padding:7px 14px;border-radius:100px;}
-.schip b{color:#E8C57C;font-weight:600;}
+.res-hero .eyebrow{color:#FF8FA0;}
+.res-hero h1{color:#fff;font-size:clamp(1.8rem,4.4vw,2.8rem);margin:4px 0 0;max-width:24ch;}
+.res-hero p{color:#C3C3E2;max-width:58ch;margin:14px 0 0;}
+.res-hero .summary{margin-top:20px;display:flex;flex-wrap:wrap;gap:9px;}
+.schip{font-size:.8rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#ECECF6;padding:7px 13px;border-radius:100px;}
+.schip b{color:#fff;}
 
-.gate{margin:26px 0 0;border-radius:var(--radius);padding:24px 26px;}
-.gate.warn{background:var(--warn-bg);border:1px solid #E9D3A2;}
+.gate{margin:24px 0 0;border-radius:var(--radius);padding:22px 24px;}
+.gate.warn{background:var(--warn-bg);border:1px solid #EAD09B;}
 .gate.stop{background:var(--danger-bg);border:1px solid #E0B7AC;}
-.gate .gh{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
-.gate .gh .av{width:40px;height:40px;border-radius:50%;background:var(--logo-img) center/cover no-repeat,var(--mango);overflow:hidden;flex:0 0 auto;}
+.gate .gh{display:flex;align-items:center;gap:11px;margin-bottom:9px;}
+.gate .gh .av{width:38px;height:38px;border-radius:50%;background:var(--mango);overflow:hidden;flex:0 0 auto;}
 .gate .gh .av img{width:100%;height:100%;object-fit:cover;}
-.gate .gh .av svg{display:none;}
-.gate h3{font-family:var(--serif);font-weight:560;font-size:1.25rem;color:#6b3f1c;}
+.gate h3{font-size:1.18rem;color:#6b3f1c;}
 .gate.stop h3{color:var(--danger);}
 .gate p{font-size:.92rem;color:#6b513a;margin:0 0 .5em;}
 .gate.stop p{color:#7a3528;}
 
-.tier-stack{display:grid;gap:26px;}
+.tier-stack{display:grid;gap:22px;}
 .tier{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);position:relative;}
-.tier.best{border:1px solid rgba(176,138,62,.65);box-shadow:0 2px 6px rgba(24,20,40,.07),0 36px 80px -28px rgba(176,138,62,.4);}
-.tier-band{height:5px;}
-.tier.best .tier-band{background:linear-gradient(90deg,var(--gold),var(--mango)) !important;}
-.tier-head{padding:26px 30px 4px;display:flex;flex-wrap:wrap;align-items:flex-start;gap:14px;}
-.tier-rank{font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:6px 13px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;}
-.rank-good{background:var(--paper-2);color:#4B4E6E;border:1px solid var(--line);}
-.rank-better{background:var(--jade-soft);color:var(--jade);border:1px solid #CBCDE8;}
-.rank-best{background:var(--gold);color:#fff;border:1px solid var(--gold);}
-.tier-head .tt{flex:1;min-width:220px;}
-.tier-head h3{font-family:var(--serif);font-weight:560;font-size:1.65rem;margin:10px 0 3px;}
-.tier-head .sub{font-size:.9rem;color:var(--ink-soft);font-style:italic;font-family:var(--serif);}
+.tier.best{border:2px solid var(--mango);box-shadow:var(--shadow-lg);}
+.tier-band{height:7px;}
+.tier-head{padding:22px 26px 4px;display:flex;flex-wrap:wrap;align-items:flex-start;gap:14px;}
+.tier-rank{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;font-weight:800;padding:5px 12px;border-radius:100px;display:inline-flex;align-items:center;gap:6px;}
+.rank-good{background:var(--sand);color:#34335C;}
+.rank-better{background:var(--jade-soft);color:var(--jade-deep);}
+.rank-best{background:var(--mango);color:#fff;}
+.tier-head .tt{flex:1;min-width:200px;}
+.tier-head h3{font-size:1.5rem;margin:6px 0 3px;}
+.tier-head .sub{font-size:.9rem;color:var(--ink-soft);}
 .fitwrap{text-align:right;min-width:96px;}
-.fitwrap .fl{font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;}
-.fitbar{width:96px;height:7px;background:var(--paper-2);border-radius:100px;overflow:hidden;margin:6px 0 4px auto;}
+.fitwrap .fl{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;}
+.fitbar{width:96px;height:8px;background:var(--paper-2);border-radius:100px;overflow:hidden;margin:5px 0 3px auto;}
 .fitbar i{display:block;height:100%;border-radius:100px;background:var(--jade);transition:width .8s var(--ease);}
-.tier.best .fitbar i{background:linear-gradient(90deg,var(--gold),var(--mango));}
-.fitwrap .fv{font-size:.78rem;color:var(--ink-soft);font-family:var(--mono);}
-.tier-cost{margin:16px 30px 0;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 20px;display:flex;flex-wrap:wrap;gap:18px;}
-.tier-cost .c{flex:1;min-width:130px;}
-.tier-cost .cl{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600;}
-.tier-cost .cv{font-family:var(--mono);font-size:1.02rem;font-weight:600;margin-top:4px;}
-.tier-cost .cv small{font-size:.72rem;color:var(--ink-soft);font-weight:400;font-family:var(--sans);}
-.tier-body{padding:18px 30px 28px;}
-.tb-section{margin-top:20px;}
-.tb-section h4{font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--jade);font-weight:600;margin-bottom:10px;}
-.proscons{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.tier.best .fitbar i{background:var(--mango);}
+.fitwrap .fv{font-size:.78rem;color:var(--ink-soft);font-family:"Spline Sans Mono",monospace;}
+.tier-cost{margin:14px 26px 0;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);padding:15px 18px;display:flex;flex-wrap:wrap;gap:18px;}
+.tier-cost .c{flex:1;min-width:128px;}
+.tier-cost .cl{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;}
+.tier-cost .cv{font-family:"Spline Sans Mono",monospace;font-size:1.02rem;font-weight:600;margin-top:3px;}
+.tier-cost .cv small{font-size:.72rem;color:var(--ink-soft);font-weight:400;font-family:"Hanken Grotesk";}
+.tier-body{padding:18px 26px 24px;}
+.tb-section{margin-top:18px;}
+.tb-section h4{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--jade);font-weight:800;margin-bottom:9px;}
+.proscons{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 @media(max-width:560px){.proscons{grid-template-columns:1fr;}}
 .pc-list{list-style:none;margin:0;padding:0;}
-.pc-list li{display:flex;gap:9px;font-size:.9rem;margin-bottom:8px;color:var(--ink-soft);}
+.pc-list li{display:flex;gap:9px;font-size:.9rem;margin-bottom:7px;color:var(--ink-soft);}
 .pc-list li svg{width:15px;height:15px;flex:0 0 auto;margin-top:3px;}
-.pros li svg{color:var(--gold);}
+.pros li svg{color:var(--jade);}
 .cons li svg{color:var(--chili);}
 .steplist{counter-reset:s;list-style:none;margin:0;padding:0;}
-.steplist li{position:relative;padding-left:36px;font-size:.9rem;color:var(--ink-soft);margin-bottom:11px;}
-.steplist li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:-1px;width:24px;height:24px;background:var(--jade-soft);color:var(--jade);border-radius:50%;display:grid;place-items:center;font-size:.72rem;font-weight:600;font-family:var(--mono);}
-.gotcha{background:var(--warn-bg);border:1px solid #E9D3A2;border-radius:var(--radius-sm);padding:14px 17px;font-size:.88rem;color:#6b4f1e;display:flex;gap:10px;}
+.steplist li{position:relative;padding-left:34px;font-size:.9rem;color:var(--ink-soft);margin-bottom:10px;}
+.steplist li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:-1px;width:23px;height:23px;background:var(--jade-soft);color:var(--jade-deep);border-radius:50%;display:grid;place-items:center;font-size:.74rem;font-weight:700;font-family:"Spline Sans Mono",monospace;}
+.gotcha{background:var(--warn-bg);border:1px solid #EAD09B;border-radius:var(--radius-sm);padding:13px 16px;font-size:.88rem;color:#6b4f1e;display:flex;gap:10px;}
 .gotcha .em{flex:0 0 auto;}
 .next-actions{display:flex;flex-wrap:wrap;gap:9px;}
-.next-actions span{font-size:.84rem;background:var(--jade-soft);color:var(--jade);padding:8px 14px;border-radius:100px;font-weight:600;}
-details.more{margin-top:16px;border-top:1px solid var(--line);padding-top:8px;}
+.next-actions span{font-size:.85rem;background:var(--jade-soft);color:var(--jade-deep);padding:8px 13px;border-radius:100px;font-weight:600;}
+details.more{margin-top:14px;border-top:1px solid var(--line);padding-top:8px;}
 details.more summary{cursor:pointer;font-size:.85rem;font-weight:700;color:var(--jade);list-style:none;display:flex;align-items:center;gap:7px;padding:6px 0;}
 details.more summary::-webkit-details-marker{display:none;}
 details.more summary .chev{transition:transform .25s;}
 details.more[open] summary .chev{transform:rotate(90deg);}
 .alts{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 @media(max-width:640px){.alts{grid-template-columns:1fr;}}
-.alt{background:var(--surface);border:1px dashed var(--line);border-radius:var(--radius-sm);padding:20px 22px;}
-.alt h4{font-family:var(--serif);font-weight:560;font-size:1.12rem;margin-bottom:5px;}
+.alt{background:var(--surface);border:1px dashed var(--line);border-radius:var(--radius-sm);padding:18px 20px;}
+.alt h4{font-size:1.08rem;margin-bottom:4px;}
 .alt .why{font-size:.86rem;color:var(--ink-soft);}
-.alt .cost{font-family:var(--mono);font-size:.82rem;color:var(--gold);margin-top:8px;}
+.alt .cost{font-family:"Spline Sans Mono",monospace;font-size:.84rem;color:var(--jade);margin-top:7px;}
 
-.loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-@media(max-width:860px){.loc-grid{grid-template-columns:1fr;}}
-.loc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
-.loc-photo{aspect-ratio:16/10;position:relative;display:grid;place-items:center;color:#fff;font-family:var(--serif);font-weight:560;font-size:1.3rem;text-shadow:0 1px 6px rgba(0,0,0,.3);}
-.loc-photo .ph{position:absolute;bottom:8px;right:10px;font-size:.66rem;font-family:var(--sans);font-weight:600;background:rgba(0,0,0,.35);padding:3px 7px;border-radius:6px;text-shadow:none;}
-.loc-photo .rk{position:absolute;top:12px;left:14px;background:rgba(18,20,59,.85);backdrop-filter:blur(4px);color:#E8C57C;font-family:var(--mono);font-weight:600;font-size:.68rem;letter-spacing:.08em;padding:5px 11px;border-radius:100px;}
+.loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:820px){.loc-grid{grid-template-columns:1fr;}}
+.loc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.loc-photo{aspect-ratio:16/10;position:relative;display:grid;place-items:center;color:#fff;font-family:"Bricolage Grotesque";font-weight:800;font-size:1.3rem;text-shadow:0 1px 6px rgba(0,0,0,.3);}
+.loc-photo .ph{position:absolute;bottom:8px;right:10px;font-size:.66rem;font-family:"Hanken Grotesk";font-weight:600;background:rgba(0,0,0,.35);padding:3px 7px;border-radius:6px;text-shadow:none;}
+.loc-photo .rk{position:absolute;top:10px;left:12px;background:var(--mango);color:#fff;font-family:"Spline Sans Mono";font-weight:600;font-size:.74rem;padding:3px 9px;border-radius:100px;}
 .loc-photo.has-photo{background-size:cover;background-position:center;place-items:initial;}
-.loc-photo.has-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(14,15,42,.66),rgba(0,0,0,0) 58%);}
+.loc-photo.has-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.62),rgba(0,0,0,0) 58%);}
 .loc-photo .rk{z-index:3;}
-.loc-photo .nm-on{position:absolute;left:16px;bottom:12px;z-index:3;font-family:var(--serif);font-weight:560;font-size:1.35rem;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.55);}
-.loc-in{padding:20px 22px;}
-.loc .region{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;}
-.loc h3{font-family:var(--serif);font-weight:560;font-size:1.3rem;margin:4px 0 0;}
-.loc .desc{font-size:.89rem;color:var(--ink-soft);margin:10px 0;}
-.loc .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
-.loc .tags span{font-size:.72rem;background:var(--paper-2);color:var(--ink-soft);padding:4px 10px;border-radius:100px;}
-.loc .budget{font-family:var(--mono);font-size:.86rem;color:var(--jade);font-weight:600;border-top:1px solid var(--line);padding-top:11px;}
-.loc .budget small{display:block;font-family:var(--sans);font-weight:400;color:var(--ink-soft);font-size:.72rem;}
+.loc-photo .nm-on{position:absolute;left:14px;bottom:11px;z-index:3;font-family:"Bricolage Grotesque";font-weight:800;font-size:1.3rem;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.55);}
+.loc-in{padding:18px 20px;}
+.loc .region{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mango-deep);font-weight:700;}
+.loc h3{font-size:1.25rem;margin:3px 0 0;}
+.loc .desc{font-size:.89rem;color:var(--ink-soft);margin:9px 0;}
+.loc .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px;}
+.loc .tags span{font-size:.73rem;background:var(--paper-2);color:var(--ink-soft);padding:4px 9px;border-radius:100px;}
+.loc .budget{font-family:"Spline Sans Mono",monospace;font-size:.86rem;color:var(--jade);font-weight:600;border-top:1px solid var(--line);padding-top:10px;}
+.loc .budget small{display:block;font-family:"Hanken Grotesk";font-weight:400;color:var(--ink-soft);font-size:.73rem;}
 
 .res-actions{display:flex;flex-wrap:wrap;gap:12px;}
-.btn-ghost{background:var(--surface);border:1.5px solid var(--jade);color:var(--jade);font-weight:700;font-size:.96rem;padding:14px 26px;border-radius:100px;transition:.2s;}
+.btn-ghost{background:var(--surface);border:1.5px solid var(--jade);color:var(--jade);font-weight:700;font-size:.96rem;padding:14px 24px;border-radius:100px;transition:.2s;}
 .btn-ghost:hover{background:var(--jade-soft);}
-.btn-solid{background:var(--chili);border:none;color:#fff;font-weight:700;font-size:.96rem;padding:14px 26px;border-radius:100px;}
-.btn-solid:hover{background:#A70F2B;}
-.disclaimer{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:22px 26px;font-size:.84rem;color:var(--ink-soft);}
+.btn-solid{background:var(--chili);border:none;color:#fff;font-weight:700;font-size:.96rem;padding:14px 24px;border-radius:100px;}
+.btn-solid:hover{background:#A50D26;}
+.disclaimer{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:20px 24px;font-size:.84rem;color:var(--ink-soft);}
 .disclaimer b{color:var(--ink);}
 
 /* ---------- doc pages ---------- */
-.doc{max-width:780px;margin:0 auto;background:var(--paper);padding:clamp(40px,6vw,72px) 26px;}
-.doc .eyebrow{margin-bottom:12px;}
-.doc h1{font-size:clamp(2.1rem,5vw,3.2rem);margin-bottom:10px;font-weight:520;}
-.doc .upd{font-family:var(--mono);font-size:.76rem;color:var(--ink-soft);margin-bottom:32px;}
-.doc h2{font-size:1.5rem;margin:34px 0 12px;font-weight:560;}
-.doc h3{font-size:1.14rem;margin:22px 0 6px;font-weight:560;}
+.doc{max-width:760px;margin:0 auto;background:var(--paper);padding:clamp(34px,6vw,64px) 22px;}
+.doc .eyebrow{margin-bottom:8px;display:block;}
+.doc h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:8px;}
+.doc .upd{font-size:.84rem;color:var(--ink-soft);margin-bottom:28px;}
+.doc h2{font-size:1.35rem;margin:30px 0 10px;}
+.doc h3{font-size:1.08rem;margin:20px 0 6px;}
 .doc p,.doc li{color:var(--ink-soft);}
 .doc ul{padding-left:20px;}
 .doc li{margin-bottom:7px;}
-.doc .callout{background:var(--gold-soft);border:1px solid #E2CD9B;border-radius:var(--radius-sm);padding:17px 21px;display:flex;gap:14px;align-items:flex-start;margin:20px 0;}
+.doc .callout{background:var(--mango-soft);border:1px solid #EFD49A;border-radius:var(--radius-sm);padding:16px 20px;display:flex;gap:14px;align-items:flex-start;margin:18px 0;}
 .doc .callout .em{font-size:1.6rem;flex:0 0 auto;}
 .doc .callout p{margin:0;color:#6b4f1e;font-size:.92rem;}
-.toggle-row{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:17px 19px;margin-bottom:12px;}
+.toggle-row{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 18px;margin-bottom:12px;}
 .toggle-row .tg-t{font-weight:700;font-size:.96rem;}
 .toggle-row .tg-d{font-size:.84rem;color:var(--ink-soft);}
-.toggle-row .lock{font-family:var(--mono);font-size:.66rem;color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:.12em;}
+.toggle-row .lock{font-size:.74rem;color:var(--jade);font-weight:700;text-transform:uppercase;letter-spacing:.06em;}
 .sw{position:relative;width:50px;height:28px;flex:0 0 auto;background:var(--sand);border-radius:100px;border:none;transition:background .2s;cursor:pointer;}
 .sw[aria-checked="true"]{background:var(--jade);}
 .sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .2s;}
@@ -513,22 +367,20 @@ details.more[open] summary .chev{transform:rotate(90deg);}
 .save-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;}
 
 /* ---------- footer ---------- */
-footer{background:var(--jade-deep);color:#A6A8CC;padding:64px 0 40px;font-size:.87rem;position:relative;overflow:hidden;}
-footer::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 70% at 90% 110%, rgba(190,18,49,.14), transparent 60%);pointer-events:none;}
-footer .wrap{position:relative;}
-footer .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:36px;}
-@media(max-width:680px){footer .fgrid{grid-template-columns:1fr;gap:26px;}}
-footer .brand-f{display:flex;align-items:center;gap:12px;color:#fff;margin-bottom:14px;}
-footer .brand-f .logo{width:40px;height:40px;border-radius:50%;overflow:hidden;background:var(--logo-img) center/cover no-repeat;box-shadow:0 0 0 2px rgba(232,197,124,.6);}
-footer .brand-f b{font-family:var(--serif);font-weight:560;font-size:1.2rem;letter-spacing:.01em;}
-footer h4{color:#E8C57C;font-family:var(--mono);font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;font-weight:600;margin-bottom:14px;}
-footer a,footer button.flink{color:#A6A8CC;text-decoration:none;display:block;margin-bottom:8px;background:none;border:none;padding:0;text-align:left;font:inherit;cursor:pointer;transition:color .15s;}
+footer{background:var(--jade-deep);color:#B6B6D4;padding:46px 0 34px;font-size:.86rem;}
+footer .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:30px;}
+@media(max-width:680px){footer .fgrid{grid-template-columns:1fr;gap:22px;}}
+footer .brand-f{display:flex;align-items:center;gap:10px;color:#fff;margin-bottom:10px;}
+footer .brand-f .logo{width:34px;height:34px;border-radius:50%;overflow:hidden;background:var(--logo-img) center/cover no-repeat;}
+footer .brand-f b{font-family:"Bricolage Grotesque";font-size:1.1rem;}
+footer h4{color:#fff;font-family:"Hanken Grotesk";font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:12px;}
+footer a,footer button.flink{color:#B6B6D4;text-decoration:none;display:block;margin-bottom:7px;background:none;border:none;padding:0;text-align:left;font:inherit;cursor:pointer;}
 footer a:hover,footer button.flink:hover{color:#fff;}
-footer .legal{border-top:1px solid var(--line-dark);margin-top:34px;padding-top:20px;font-size:.78rem;color:#7B7EA6;line-height:1.7;}
-footer .legal b{color:#C0C1DE;}
+footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:28px;padding-top:18px;font-size:.78rem;color:#8C8CB2;line-height:1.7;}
+footer .legal b{color:#C3C3E2;}
 
 /* cookie banner */
-.cookie{position:fixed;left:0;right:0;bottom:0;z-index:120;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -10px 30px -16px rgba(24,20,40,.3);padding:16px 0;display:none;}
+.cookie{position:fixed;left:0;right:0;bottom:0;z-index:120;background:#fff;border-top:1px solid var(--line);box-shadow:0 -10px 30px -16px rgba(70,45,10,.3);padding:16px 0;display:none;}
 .cookie.show{display:block;animation:fade .3s var(--ease);}
 .cookie .inner{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
 .cookie .txt{flex:1;min-width:240px;font-size:.86rem;color:var(--ink-soft);}
@@ -541,56 +393,64 @@ footer .legal b{color:#C0C1DE;}
 
 .skip{position:absolute;left:-9999px;}
 .skip:focus{left:16px;top:10px;z-index:200;background:#fff;padding:10px 16px;border-radius:8px;}
-@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}.rv{opacity:1;transform:none;}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
 </style>
 <style id="tvf-theme">
 :root[data-theme="dark"]{
-  --ink:#EAEBF2; --ink-soft:#9CA0B8;
-  --paper:#0C0E1A; --paper-2:#141726; --surface:#1B1E30;
-  --jade:#8B9AE8; --jade-deep:#080911; --jade-soft:#232741;
-  --mango:#D9A84E; --mango-deep:#E8C57C; --mango-soft:#241D0F;
-  --chili:#D9A84E; --chili-soft:#241D0F; --gold:#D9BC77; --gold-soft:#241D0F; --sand:#2E3350;
-  --line:#2A2E49; --line-dark:rgba(255,255,255,.12);
-  --warn:#E7B15E; --warn-bg:#191509; --danger:#E8776A; --danger-bg:#2C1714;
+  --ink:#E9EBEF; --ink-soft:#9AA2AF;
+  --paper:#0B0E13; --paper-2:#141922; --surface:#20262F;
+  --jade:#6C93F2; --jade-deep:#080A0E; --jade-soft:#262D3A;
+  --mango:#E3AE4E; --mango-deep:#F1C56B; --mango-soft:#1B212B;
+  --chili:#E3AE4E; --chili-soft:#1B212B; --gold:#6C93F2; --sand:#2E3644;
+  --line:#333C4A; --warn:#E7B15E; --warn-bg:#191509; --danger:#E8776A; --danger-bg:#2C1714;
   --shadow:0 1px 2px rgba(0,0,0,.5),0 14px 34px -16px rgba(0,0,0,.7);
   --shadow-lg:0 2px 6px rgba(0,0,0,.55),0 30px 64px -22px rgba(0,0,0,.8);
-  background:#0C0E1A; color-scheme:dark;
+  background:#0B0E13; color-scheme:dark;
 }
-:root[data-theme="dark"] .topbar{background:rgba(12,14,26,.88);}
-:root[data-theme="dark"] .cta,:root[data-theme="dark"] .btn-solid,:root[data-theme="dark"] .topnav .tcta{color:#17110A;background:var(--gold);box-shadow:0 12px 34px -10px rgba(217,188,119,.4);}
-:root[data-theme="dark"] .cta:hover,:root[data-theme="dark"] .btn-solid:hover,:root[data-theme="dark"] .topnav .tcta:hover{background:#E8C57C;color:#17110A;}
-:root[data-theme="dark"] .speech{background:rgba(27,30,48,.94);color:var(--ink);border-color:var(--line);}
-:root[data-theme="dark"] .speech::after{background:rgba(27,30,48,.94);border-color:var(--line);}
-:root[data-theme="dark"] .cookie{background:var(--surface);}
-:root[data-theme="dark"] .rank-best{color:#17110A;}
+:root[data-theme="dark"] .topbar{background:rgba(11,14,19,.88);}
+:root[data-theme="dark"] .speech,
+:root[data-theme="dark"] .speech::after,
+:root[data-theme="dark"] .cookie,
+:root[data-theme="dark"] .country-map{background:var(--surface);}
+:root[data-theme="dark"] .tcta,
+:root[data-theme="dark"] .sister a{background:#3F6FDE;color:#fff;}
+:root[data-theme="dark"] .tcta:hover,
+:root[data-theme="dark"] .sister a:hover{background:#5A85EC;}
 :root[data-theme="dark"] .rank-good{color:var(--ink);}
 :root[data-theme="dark"] .skip:focus{background:var(--surface);color:var(--ink);}
+:root[data-theme="dark"] .tag{color:var(--ink);}
+:root[data-theme="dark"] .uncle-quote{border-color:#3A331F;color:#F1C56B;}
+:root[data-theme="dark"] .eyebrow,:root[data-theme="dark"] .kicker{color:#F1C56B;}
+:root[data-theme="dark"] .cta,:root[data-theme="dark"] .contact-btn,:root[data-theme="dark"] .topnav a.cta{color:#17110A;}
+:root[data-theme="dark"] .k,:root[data-theme="dark"] .next-actions span,:root[data-theme="dark"] .rank-better{color:var(--ink);}
+:root[data-theme="dark"] .fact .k{color:#F1C56B;}
+:root[data-theme="dark"] .who,:root[data-theme="dark"] .sister,:root[data-theme="dark"] .callout,:root[data-theme="dark"] .ic{border-color:var(--line);}
 :root[data-theme="dark"] .notice,:root[data-theme="dark"] .notice b,:root[data-theme="dark"] .gotcha,:root[data-theme="dark"] .doc .callout p{color:#F3DCA0;}
-:root[data-theme="dark"] .notice,:root[data-theme="dark"] .gotcha,:root[data-theme="dark"] .doc .callout{border-color:#544521;}
+:root[data-theme="dark"] .notice,:root[data-theme="dark"] .gotcha{border-color:#544521;}
 :root[data-theme="dark"] .gate h3,:root[data-theme="dark"] .gate p{color:#ECE4CF;}
 :root[data-theme="dark"] .gate.stop p{color:#F0AEA4;}
-:root[data-theme="dark"] .next-actions span,:root[data-theme="dark"] .steplist li::before{color:var(--ink);}
-:root[data-theme="dark"] .hero,:root[data-theme="dark"] .finale,:root[data-theme="dark"] .band.jungle,:root[data-theme="dark"] .res-hero,:root[data-theme="dark"] footer,:root[data-theme="dark"] .ribbon{background:#070810;}
+:root[data-theme="dark"] .cta:hover,:root[data-theme="dark"] .btn-solid:hover,:root[data-theme="dark"] .contact-btn:hover,:root[data-theme="dark"] .topnav a.cta:hover{background:var(--mango-deep);color:#17110A;}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;padding:0;margin-left:4px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;cursor:pointer;transition:background .15s,color .15s;flex:0 0 auto;}
+.theme-toggle:hover{background:var(--paper-2);}
+.theme-toggle svg{width:18px;height:18px;}
+.theme-toggle .i-sun{display:none;}
+.theme-toggle .i-moon{display:block;}
+:root[data-theme="dark"] .theme-toggle .i-sun{display:block;}
+:root[data-theme="dark"] .theme-toggle .i-moon{display:none;}
 </style>
 </head>
 <body>
 <a href="#main" class="skip">Skip to content</a>
-
-<!-- ===== ANNOUNCEMENT RIBBON ===== -->
-<div class="ribbon" role="note">
-  <div class="wrap inner"><span class="dot" aria-hidden="true"></span><span><b>Rules in motion:</b> Thailand's Cabinet has approved cutting visa-free entry from 60 to 30 days — pending the Royal Gazette. Plan around 30.</span></div>
-</div>
 
 <!-- ===== TOP BAR ===== -->
 <header class="topbar">
   <div class="wrap inner">
     <a class="brand" href="#" onclick="goHome();return false;" aria-label="Uncle Pong's Thailand home">
       <span class="logo" role="img" aria-label="Uncle Pong logo"></span>
-      <span><span class="bt">Uncle Pong's</span><span class="bs">Thai Visa Finder</span></span>
+      <span><span class="bt">Uncle Pong's</span><span class="bs">Thailand Visa Finder</span></span>
     </a>
     <nav class="topnav" aria-label="Primary">
       <a href="#" class="hide-sm" onclick="goHome();scrollToId('how');return false;">How it works</a>
-      <a href="#" class="hide-sm" onclick="goHome();scrollToId('routes');return false;">The 18 routes</a>
       <a href="city-guide.html">City Guide</a>
       <a href="about.html" class="hide-sm">About</a>
       <a href="contact.html" class="hide-sm">Contact</a>
@@ -601,186 +461,187 @@ footer .legal b{color:#C0C1DE;}
 </header>
 
 <main id="main">
+<!-- ===== SIDE RAILS (beside content, in gutter) ===== -->
+<style>
+  #main{position:relative;}
+  .side-rail{position:absolute;bottom:40px;width:160px;z-index:5;line-height:0;}
+  .side-rail iframe{border:0;display:block;overflow:hidden;}
+  .side-rail-left{left:calc(50% - (var(--maxw) / 2) - 176px);}
+  .side-rail-right{right:calc(50% - (var(--maxw) / 2) - 176px);}
+  @media(max-width:1459px){.side-rail{display:none;}}
+</style>
+
+
 
 <!-- ============ HOME ============ -->
 <div class="page active" id="page-home">
 
-  <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg" aria-hidden="true">
-      <img src="krabi.jpg" alt="" fetchpriority="high">
-      <div class="shade"></div>
-    </div>
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow rv">The most trusted Thai visa authority on the web</span>
-        <h1 class="rv d1">Which Thailand visa is <em>actually</em> right for you?</h1>
-        <p class="lede rv d2">I'm Uncle Pong. Tell me about your life and I'll weigh all <b>18 legal routes</b> and give you a straight answer — real costs, the catches nobody mentions, and what to do next. No agency nonsense.</p>
-        <div class="trust rv d3">
+        <span class="uncle-quote">🍻 Khun farang, welcome — sit down</span>
+        <h1>Which Thailand visa is <span class="hl">actually</span> right for you?</h1>
+        <p class="lede">I'm Uncle Pong. Tell me about your life and I'll weigh all <b>18 legal routes</b> and give you a straight answer — real costs, the catches nobody mentions, and what to do next. No agency nonsense.</p>
+        <div class="trust">
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Free, no sign-up</span>
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>About 3 minutes</span>
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg>Honest, not salesy</span>
         </div>
-        <div class="hero-actions rv d4">
-          <button class="cta" onclick="startQuiz()">Find My Visa <span class="arrow">→</span></button>
-          <a class="ghost-link" href="#" onclick="goHome();scrollToId('routes');return false;">Browse all 18 routes</a>
-        </div>
-        <p class="cta-note rv d4">I'll also tell you where in Thailand you'd be happiest. 🌴</p>
+        <button class="cta" onclick="startQuiz()">Find My Visa <span class="arrow">→</span></button>
+        <p class="cta-note">I'll also tell you where in Thailand you'd be happiest. 🌴</p>
       </div>
-      <div class="rv d2">
+      <div>
         <div class="uncle-card">
-          <div class="frame">
-            <div class="uncle-portrait">
-              <img id="uncleImg" alt="Uncle Pong enjoying a beach day in Thailand" src="unclepong.jpg">
-              <div class="grade"></div>
-            </div>
-            <div class="speech">“Tell me your story — I'll find your visa.”</div>
-            <div class="uncle-meta">
-              <span class="sig" role="img" aria-label="Uncle Pong seal"></span>
-              <span><span class="nm">Uncle Pong</span><span class="rl" style="display:block">Your cheeky Thai uncle · seen it all since the '80s</span></span>
-              <span class="badge">Est. the '80s</span>
-            </div>
+          <div class="uncle-portrait">
+            <svg class="uncle-svg" id="uncleSvg" viewBox="0 0 200 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cartoon of Uncle Pong, a friendly Thai uncle" style="display:none">
+              <ellipse cx="100" cy="160" rx="62" ry="14" fill="#000" opacity=".07"/>
+              <path d="M58 150c0-26 18-44 42-44s42 18 42 44z" fill="#181845"/>
+              <path d="M70 150c0-18 13-30 30-30s30 12 30 30z" fill="#C8102E"/>
+              <circle cx="100" cy="74" r="40" fill="#E8B07A"/>
+              <path d="M62 70c0-26 18-40 38-40s38 14 38 40c0-6-10-12-18-12-6-6-34-6-40 0-8 0-18 6-18 12z" fill="#3A2A1A"/>
+              <ellipse cx="83" cy="74" rx="11" ry="10" fill="#fff" stroke="#3A2A1A" stroke-width="3"/>
+              <ellipse cx="117" cy="74" rx="11" ry="10" fill="#fff" stroke="#3A2A1A" stroke-width="3"/>
+              <line x1="94" y1="72" x2="106" y2="72" stroke="#3A2A1A" stroke-width="3"/>
+              <circle cx="84" cy="75" r="4" fill="#2A1E12"/><circle cx="116" cy="75" r="4" fill="#2A1E12"/>
+              <path d="M78 96c8 12 36 12 44 0" fill="none" stroke="#7a4a28" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="68" cy="90" r="6" fill="#C8102E" opacity=".22"/><circle cx="132" cy="90" r="6" fill="#C8102E" opacity=".22"/>
+              <circle cx="150" cy="58" r="9" fill="#C8102E"/><path d="M150 50v16M142 58h16" stroke="#fff" stroke-width="2"/>
+            </svg>
+            <img id="uncleImg" alt="Uncle Pong enjoying a beach day in Thailand" src="unclebox.jpg" onerror="this.style.display='none';var s=document.getElementById('uncleSvg');if(s)s.style.display='block';">
+            <div class="speech">"Tell me your story — I'll find your visa."</div>
+          </div>
+          <div class="uncle-meta">
+            <div class="nm">Uncle Pong</div>
+            <div class="rl">Your cheeky Thai uncle · seen it all since the '80s</div>
           </div>
         </div>
       </div>
     </div>
+    <div class="wrap">
+      <div class="notice">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+        <div><b>Heads up — rules are moving:</b> On 19 May 2026 Thailand's Cabinet approved cutting visa-free entry from 60 days back to 30 for most nationalities. It kicks in 15 days after it's published in the Royal Gazette — not confirmed yet as of late June 2026. For now the 60-day stamp still works at the border, but it's smart to plan around 30 days. This tool treats visa-free entry as short-stay only.</div>
+      </div>
+    </div>
   </section>
 
-  <!-- STAT BAR -->
-  <div class="wrap statbar">
-    <div class="grid rv">
-      <div class="stat"><div class="v">18</div><div class="l">legal long-stay routes, weighed against each other</div></div>
-      <div class="stat"><div class="v">~3<small> min</small></div><div class="l">of honest questions — smart branching skips what doesn't matter</div></div>
-      <div class="stat"><div class="v">$0</div><div class="l">free forever — no account, no spam, nothing sold</div></div>
-      <div class="stat"><div class="v">0</div><div class="l">commissions taken — we earn nothing from your choice</div></div>
-    </div>
-    <div class="notice rv" style="margin-top:22px;">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
-      <div><b>Heads up — rules are moving:</b> On 19 May 2026 Thailand's Cabinet approved cutting visa-free entry from 60 days back to 30 for most nationalities. It kicks in 15 days after it's published in the Royal Gazette — not confirmed yet as of late June 2026. For now the 60-day stamp still works at the border, but it's smart to plan around 30 days. This tool treats visa-free entry as short-stay only.</div>
-    </div>
-  </div>
-
-  <!-- HOW IT WORKS -->
-  <section class="band tight" id="how">
+  <section class="band alt" id="how">
     <div class="wrap">
-      <div class="sec-head rv">
+      <div class="sec-head">
         <span class="eyebrow">How it works</span>
-        <h2>A few easy questions, then <em>a straight answer</em></h2>
+        <h2>A few easy questions, then a straight answer</h2>
         <p>No accounts, no spam, and this tool earns nothing if you pick one visa over another. Just an honest map of what actually fits your age, money, work and plans.</p>
       </div>
       <div class="steps3">
-        <div class="howcard rv"><div class="num">01</div><h3>Tell us your story</h3><p>Nationality, age, how you earn, whether you've a Thai sweetheart, your budget and timeline. Smart branching means you only answer what matters.</p></div>
-        <div class="howcard rv d1"><div class="num">02</div><h3>All 18 routes, weighed</h3><p>Every legal pathway is scored against you and screened for the hard stuff — bank balances, income thresholds, age limits, work rights.</p></div>
-        <div class="howcard rv d2"><div class="num">03</div><h3>Get the honest verdict</h3><p>A Good / Better / Best pick with real costs and real drawbacks — plus where in Thailand you'd likely thrive.</p></div>
+        <div class="howcard"><div class="ic">🗣️</div><h3>Tell us your story</h3><p>Nationality, age, how you earn, whether you've a Thai sweetheart, your budget and timeline. Smart branching means you only answer what matters.</p></div>
+        <div class="howcard"><div class="ic">⚖️</div><h3>All 18 routes, weighed</h3><p>Every legal pathway is scored against you and screened for the hard stuff — bank balances, income thresholds, age limits, work rights.</p></div>
+        <div class="howcard"><div class="ic">🎯</div><h3>Get the honest verdict</h3><p>A Good / Better / Best pick with real costs and real drawbacks — plus where in Thailand you'd likely thrive.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- THE 18 ROUTES -->
-  <section class="band jungle" id="routes">
+  <section class="band jungle has-banner">
     <div class="wrap">
-      <div class="sec-head rv">
+      <img class="thailand-banner" src="thailand.jpg" alt="Thailand — temples and skyline at dusk" loading="lazy">
+      <div class="sec-head">
         <span class="eyebrow">The full landscape</span>
-        <h2>All 18 legal long-stay routes — <em>weighed against each other</em></h2>
+        <h2>All 18 legal long-stay routes — weighed against each other</h2>
         <p>Most websites push the one visa they earn commission on. This tool weighs the lot, even the ones nobody makes money sending you to.</p>
       </div>
-      <div class="routes rv">
-        <div class="rt"><span class="idx">01</span><div><span class="b">Visa exemption</span><span class="s">Short visits. 30–60 days (in transition) + one extension.</span></div></div>
-        <div class="rt"><span class="idx">02</span><div><span class="b">Tourist Visa (TR)</span><span class="s">60 days, applied in advance — good for non-exempt passports.</span></div></div>
-        <div class="rt"><span class="idx">03</span><div><span class="b">DTV — Destination Thailand</span><span class="s">Remote workers &amp; soft-power. 5 yrs, 180 days/entry.</span></div></div>
-        <div class="rt"><span class="idx">04</span><div><span class="b">Non-O Retirement</span><span class="s">Age 50+. 800k THB or 65k/mo income.</span></div></div>
-        <div class="rt"><span class="idx">05</span><div><span class="b">Non-OA Long-Stay</span><span class="s">Retirement from home country; insurance required.</span></div></div>
-        <div class="rt"><span class="idx">06</span><div><span class="b">Non-O-X (5-year)</span><span class="s">Retirement, limited nationalities, high funds.</span></div></div>
-        <div class="rt"><span class="idx">07</span><div><span class="b">LTR — Wealthy Pensioner</span><span class="s">10 yrs, $80k passive income, tax perks.</span></div></div>
-        <div class="rt"><span class="idx">08</span><div><span class="b">LTR — Work-from-Thailand</span><span class="s">10 yrs, senior remote pros, established employer.</span></div></div>
-        <div class="rt"><span class="idx">09</span><div><span class="b">LTR — Wealthy Global Citizen</span><span class="s">10 yrs, $1M assets incl. $500k in Thailand.</span></div></div>
-        <div class="rt"><span class="idx">10</span><div><span class="b">LTR — Highly-Skilled Pro</span><span class="s">Targeted industries; flat 17% tax.</span></div></div>
-        <div class="rt"><span class="idx">11</span><div><span class="b">Thailand Privilege</span><span class="s">Pay-once membership, 5–20 yrs, no income test.</span></div></div>
-        <div class="rt"><span class="idx">12</span><div><span class="b">Marriage (Non-O)</span><span class="s">Spouse of a Thai citizen. 400k THB or 40k/mo.</span></div></div>
-        <div class="rt"><span class="idx">13</span><div><span class="b">Family / Dependent (Non-O)</span><span class="s">Parent of a Thai child, or dependent of a visa holder.</span></div></div>
-        <div class="rt"><span class="idx">14</span><div><span class="b">Non-B + Work Permit</span><span class="s">Real local work; needs a Thai sponsor or company.</span></div></div>
-        <div class="rt"><span class="idx">15</span><div><span class="b">ED — Education</span><span class="s">Language / course route &amp; common stepping stone.</span></div></div>
-        <div class="rt"><span class="idx">16</span><div><span class="b">SMART Visa</span><span class="s">Skilled experts &amp; startups in targeted sectors.</span></div></div>
-        <div class="rt"><span class="idx">17</span><div><span class="b">Medical (Non-O)</span><span class="s">Long-term treatment at a Thai hospital.</span></div></div>
-        <div class="rt"><span class="idx">18</span><div><span class="b">Volunteer (Non-O)</span><span class="s">Genuine work with an approved NGO / charity.</span></div></div>
+      <div class="routes">
+        <div class="rt"><span class="dot"></span><div><span class="b">Visa exemption</span><span class="s">Short visits. 30–60 days (in transition) + one extension.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">Tourist Visa (TR)</span><span class="s">60 days, applied in advance — good for non-exempt passports.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">DTV — Destination Thailand</span><span class="s">Remote workers & soft-power. 5 yrs, 180 days/entry.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">Non-O Retirement</span><span class="s">Age 50+. 800k THB or 65k/mo income.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">Non-OA Long-Stay</span><span class="s">Retirement from home country; insurance required.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">Non-O-X (5-year)</span><span class="s">Retirement, limited nationalities, high funds.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">LTR — Wealthy Pensioner</span><span class="s">10 yrs, $80k passive income, tax perks.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">LTR — Work-from-Thailand</span><span class="s">10 yrs, senior remote pros, established employer.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">LTR — Wealthy Global Citizen</span><span class="s">10 yrs, $1M assets incl. $500k in Thailand.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">LTR — Highly-Skilled Pro</span><span class="s">Targeted industries; flat 17% tax.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">Thailand Privilege</span><span class="s">Pay-once membership, 5–20 yrs, no income test.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">Marriage (Non-O)</span><span class="s">Spouse of a Thai citizen. 400k THB or 40k/mo.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">Family / Dependent (Non-O)</span><span class="s">Parent of a Thai child, or dependent of a visa holder.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">Non-B + Work Permit</span><span class="s">Real local work; needs a Thai sponsor or company.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">ED — Education</span><span class="s">Language / course route & common stepping stone.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">SMART Visa</span><span class="s">Skilled experts & startups in targeted sectors.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">Medical (Non-O)</span><span class="s">Long-term treatment at a Thai hospital.</span></div></div>
+        <div class="rt"><span class="dot"></span><div><span class="b">Volunteer (Non-O)</span><span class="s">Genuine work with an approved NGO / charity.</span></div></div>
       </div>
-      <div style="text-align:center;margin-top:44px;" class="rv">
+      <div style="text-align:center;margin-top:32px;">
         <button class="cta" onclick="startQuiz()">Find My Visa <span class="arrow">→</span></button>
       </div>
     </div>
   </section>
 
-  <!-- CITIES -->
-  <section class="band" id="cities">
+  <!-- entry tips + sister site -->
+  <section class="band">
     <div class="wrap">
-      <div class="sec-head rv">
-        <span class="eyebrow">Where you'd thrive</span>
-        <h2>One kingdom, <em>very different lives</em></h2>
-        <p>Bangkok's blue-glass towers, Chiang Mai's cool-season mornings, the Andaman's limestone bays, Isaan's easy warmth. Answer the finder honestly and Uncle Pong matches your visa <b>and</b> your city.</p>
-      </div>
-      <div class="city-grid">
-        <div class="city rv"><img src="bangkok.jpeg" alt="Bangkok skyline" loading="lazy"><div class="grade"></div><div class="in"><span class="rg">Central</span><h3>Bangkok</h3><span class="bd">$1,900–3,300 / mo</span></div></div>
-        <div class="city rv d1"><img src="chiang-mai.jpg" alt="Chiang Mai temples" loading="lazy"><div class="grade"></div><div class="in"><span class="rg">The North</span><h3>Chiang Mai</h3><span class="bd">$1,400–2,200 / mo</span></div></div>
-        <div class="city rv d2"><img src="phuket.jpg" alt="Phuket beach" loading="lazy"><div class="grade"></div><div class="in"><span class="rg">Andaman coast</span><h3>Phuket</h3><span class="bd">$2,000–3,500 / mo</span></div></div>
-        <div class="city rv d3"><img src="kohsamui.jpg" alt="Koh Samui shoreline" loading="lazy"><div class="grade"></div><div class="in"><span class="rg">Gulf islands</span><h3>Koh Samui</h3><span class="bd">$1,800–3,100 / mo</span></div></div>
-        <div class="city rv"><img src="pattaya.jpg" alt="Pattaya beachfront" loading="lazy"><div class="grade"></div><div class="in"><span class="rg">Eastern Gulf</span><h3>Pattaya</h3><span class="bd">$1,600–2,700 / mo</span></div></div>
-        <div class="city rv d1"><img src="hua-hin.jpg" alt="Hua Hin coast" loading="lazy"><div class="grade"></div><div class="in"><span class="rg">Gulf coast</span><h3>Hua Hin</h3><span class="bd">$1,500–2,500 / mo</span></div></div>
-        <div class="city rv d2"><img src="krabi.jpg" alt="Krabi limestone cliffs" loading="lazy"><div class="grade"></div><div class="in"><span class="rg">Andaman coast</span><h3>Krabi</h3><span class="bd">Limestone &amp; slow days</span></div></div>
-        <div class="city rv d3"><img src="khon-kaen.jpg" alt="Khon Kaen lake at dusk" loading="lazy"><div class="grade"></div><div class="in"><span class="rg">Isaan (NE)</span><h3>Khon Kaen</h3><span class="bd">$1,200–1,800 / mo</span></div></div>
-      </div>
-      <div class="map-note rv">
-        <div class="mp"><img src="thailand-map.png" alt="Map of Thailand's regions and major expat hubs" loading="lazy"></div>
+      <div class="tips">
         <div>
-          <h3>Most long-stayers try two or three before settling</h3>
-          <p>The finder scores every hub on pace, budget, healthcare, air quality, expat scene and more — then names the three spots that fit how you actually want to live. Want the full tour first?</p>
+          <span class="eyebrow">Entry checklist</span>
+          <h2 style="font-size:clamp(1.6rem,3.4vw,2.2rem);margin:9px 0 14px;">Whatever visa you pick, get these right at the border</h2>
+          <ul class="tip-list">
+            <li><span class="k">1</span><div><b>TDAC arrival card</b> — mandatory and free, filed in the 72 hours before you land. Only use the official government site; anyone charging a fee is a scam.</div></li>
+            <li><span class="k">2</span><div><b>Passport valid 6+ months</b> beyond your travel dates.</div></li>
+            <li><span class="k">3</span><div><b>Proof of funds</b> — immigration can ask each tourist to show ~20,000 THB (40,000 per family), often in real cash. A banking app on your phone may not cut it.</div></li>
+            <li><span class="k">4</span><div><b>Onward ticket & a booked first night</b> ready to show.</div></li>
+          </ul>
         </div>
-        <div class="go"><a class="btn-line" href="city-guide.html">Open the City Guide</a></div>
+        <div class="tip-img">
+          <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" id="uncleAirportSvg" aria-label="Uncle Pong at immigration">
+            <rect width="200" height="150" fill="#EAEBF7"/>
+            <rect x="20" y="70" width="160" height="60" rx="6" fill="#fff" stroke="#EBD9BC"/>
+            <rect x="30" y="80" width="60" height="8" rx="4" fill="#C9CAE0"/>
+            <rect x="30" y="96" width="90" height="6" rx="3" fill="#DADBEA"/>
+            <rect x="30" y="108" width="70" height="6" rx="3" fill="#DADBEA"/>
+            <circle cx="150" cy="50" r="26" fill="#E8B07A"/>
+            <path d="M124 48c0-17 12-26 26-26s26 9 26 26c-5-5-12-8-26-8s-21 3-26 8z" fill="#3A2A1A"/>
+            <circle cx="143" cy="50" r="4" fill="#2A1E12"/><circle cx="157" cy="50" r="4" fill="#2A1E12"/>
+            <path d="M140 60c5 6 15 6 20 0" fill="none" stroke="#7a4a28" stroke-width="3" stroke-linecap="round"/>
+            <rect x="150" y="76" width="40" height="40" rx="6" fill="#26276B"/>
+            <text x="170" y="100" font-size="18" text-anchor="middle" fill="#fff">✓</text>
+          </svg>
+          <img id="uncleAirportImg" alt="Uncle Pong getting his passport stamped" src="passportcontrol.jpg" style="display:none">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- FAQ (matches FAQPage schema) -->
   <section class="band alt" id="faq">
     <div class="wrap">
-      <div class="sec-head center rv">
-        <span class="eyebrow center">Quick answers</span>
-        <h2>Thailand visa questions <em>we hear a lot</em></h2>
+      <div class="sec-head">
+        <span class="eyebrow">Quick answers</span>
+        <h2>Thailand visa questions we hear a lot</h2>
         <p>Short, honest answers to the questions that bring most people here. Use the finder above for advice tailored to your own situation.</p>
       </div>
-      <div class="faq rv">
-        <div class="faq-item"><details class="fq">
-          <summary>What is the best Thailand visa for retirement?<span class="pl">+</span></summary>
-          <div class="fa"><p>For most people aged 50+, the <strong>Non-O Retirement visa</strong> is the standard route — 800,000 THB in a Thai bank or 65,000 THB/month income, renewable each year. Higher-income retirees (about US$80,000+/yr in passive income) often prefer the 10-year <strong>LTR Wealthy Pensioner</strong>, which adds tax benefits and only annual reporting.</p></div>
-        </details></div>
-        <div class="faq-item"><details class="fq">
-          <summary>Can I work in Thailand on the DTV visa?<span class="pl">+</span></summary>
-          <div class="fa"><p>The <strong>DTV</strong> lets you work remotely for employers and clients <em>outside</em> Thailand, but you cannot legally work for Thai companies or Thai clients on it. Local work needs a <strong>Non-B visa plus a work permit</strong>, or an LTR/SMART visa in specific cases.</p></div>
-        </details></div>
-        <div class="faq-item"><details class="fq">
-          <summary>How long can I stay in Thailand without a visa in 2026?<span class="pl">+</span></summary>
-          <div class="fa"><p>Visa-exempt entry was 60 days, but in May 2026 the Cabinet approved cutting it back to <strong>30 days</strong> for most nationalities, pending publication in the Royal Gazette. Plan around 30 days, confirm your nationality's current allowance with the <a href="https://www.mfa.go.th/en" target="_blank" rel="noopener">Ministry of Foreign Affairs</a>, and you can usually extend once at immigration.</p></div>
-        </details></div>
-        <div class="faq-item"><details class="fq">
-          <summary>What is the cheapest long-stay visa for Thailand?<span class="pl">+</span></summary>
-          <div class="fa"><p>The <strong>DTV</strong> is one of the cheapest at roughly 10,000 THB for five years (180 days per entry). If you're married to a Thai citizen, the <strong>marriage visa</strong> has a low bar — 400,000 THB in the bank or 40,000 THB/month.</p></div>
-        </details></div>
-        <div class="faq-item"><details class="fq">
-          <summary>How much money do I need to live in Thailand?<span class="pl">+</span></summary>
-          <div class="fa"><p>A modest single-person lifestyle realistically runs about <strong>US$900–1,500+ per month</strong> in 2026, and more in Bangkok or on the islands. Most long-stay visas also require proof of funds you keep set aside — commonly US$12,000–24,000+, depending on the route.</p></div>
-        </details></div>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>What is the best Thailand visa for retirement?</h3>
+          <p>For most people aged 50+, the <strong>Non-O Retirement visa</strong> is the standard route — 800,000 THB in a Thai bank or 65,000 THB/month income, renewable each year. Higher-income retirees (about US$80,000+/yr in passive income) often prefer the 10-year <strong>LTR Wealthy Pensioner</strong>, which adds tax benefits and only annual reporting.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I work in Thailand on the DTV visa?</h3>
+          <p>The <strong>DTV</strong> lets you work remotely for employers and clients <em>outside</em> Thailand, but you cannot legally work for Thai companies or Thai clients on it. Local work needs a <strong>Non-B visa plus a work permit</strong>, or an LTR/SMART visa in specific cases.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How long can I stay in Thailand without a visa in 2026?</h3>
+          <p>Visa-exempt entry was 60 days, but in May 2026 the Cabinet approved cutting it back to <strong>30 days</strong> for most nationalities, pending publication in the Royal Gazette. Plan around 30 days, confirm your nationality's current allowance with the <a href="https://www.mfa.go.th/en" target="_blank" rel="noopener">Ministry of Foreign Affairs</a>, and you can usually extend once at immigration.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What is the cheapest long-stay visa for Thailand?</h3>
+          <p>The <strong>DTV</strong> is one of the cheapest at roughly 10,000 THB for five years (180 days per entry). If you're married to a Thai citizen, the <strong>marriage visa</strong> has a low bar — 400,000 THB in the bank or 40,000 THB/month.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How much money do I need to live in Thailand?</h3>
+          <p>A modest single-person lifestyle realistically runs about <strong>US$900–1,500+ per month</strong> in 2026, and more in Bangkok or on the islands. Most long-stay visas also require proof of funds you keep set aside — commonly US$12,000–24,000+, depending on the route.</p>
+        </div>
       </div>
     </div>
   </section>
 </div>
 
-<script>
-/* reveal-on-scroll */
-(function(){
-  if(!('IntersectionObserver' in window)){document.querySelectorAll('.rv').forEach(e=>e.classList.add('in'));return;}
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.rv').forEach(function(e){io.observe(e);});
-})();
-</script>
 <!-- ============ ABOUT ============ -->
 <div class="page" id="page-about">
   <div class="doc">
