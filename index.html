@@ -249,11 +249,18 @@ section.band{padding:clamp(64px,8vw,110px) 0;background:var(--paper);}
 /* routes — ledger table feel */
 .routes{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(28px,4vw,64px);border-top:1px solid var(--line-dark);}
 @media(max-width:760px){.routes{grid-template-columns:1fr;}}
-.rt{display:flex;gap:16px;align-items:baseline;padding:15px 4px;border-bottom:1px solid var(--line-dark);transition:background .2s;}
-.rt:hover{background:rgba(255,255,255,.035);}
-.rt .idx{font-family:var(--mono);font-size:.68rem;color:#D9BC77;min-width:22px;letter-spacing:.05em;}
+.rt{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:15px 8px 15px 4px;border-bottom:1px solid var(--line-dark);transition:background .2s;text-decoration:none;color:inherit;cursor:pointer;}
+.rt:hover{background:rgba(255,255,255,.05);}
+.rt .idx{font-family:var(--mono);font-size:.68rem;color:#D9BC77;min-width:22px;letter-spacing:.05em;align-self:flex-start;padding-top:3px;}
+.rt>.txt{flex:1;min-width:0;}
 .rt .b{font-weight:600;font-size:.96rem;color:#fff;display:block;}
 .rt .s{font-size:.8rem;color:#9EA0C6;display:block;margin-top:1px;}
+.rt-go{flex:0 0 auto;display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#12143B;background:#E3AE4E;padding:7px 12px;border-radius:999px;white-space:nowrap;transition:background .18s,transform .18s;box-shadow:0 2px 8px -3px rgba(227,174,78,.6);}
+.rt-go .a{transition:transform .18s;}
+.rt:hover .rt-go{background:#F0C063;transform:translateY(-1px);}
+.rt:hover .rt-go .a{transform:translateX(3px);}
+.rt:focus-visible{outline:2px solid #E3AE4E;outline-offset:2px;border-radius:6px;}
+@media(max-width:420px){.rt-go{font-size:0;padding:8px;gap:0;}.rt-go .lbl{display:none;}.rt-go .a{font-size:.9rem;}}
 
 /* meet uncle pong */
 .meet{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(36px,5vw,80px);align-items:center;}
@@ -685,24 +692,24 @@ footer .legal b{color:#C0C1DE;}
         <p>Most websites push the one visa they earn commission on. This tool weighs the lot, even the ones nobody makes money sending you to.</p>
       </div>
       <div class="routes rv">
-        <div class="rt"><span class="idx">01</span><div><span class="b">Visa exemption</span><span class="s">Short visits. 30–60 days (in transition) + one extension.</span></div></div>
-        <div class="rt"><span class="idx">02</span><div><span class="b">Tourist Visa (TR)</span><span class="s">60 days, applied in advance — good for non-exempt passports.</span></div></div>
-        <div class="rt"><span class="idx">03</span><div><span class="b">DTV — Destination Thailand</span><span class="s">Remote workers &amp; soft-power. 5 yrs, 180 days/entry.</span></div></div>
-        <div class="rt"><span class="idx">04</span><div><span class="b">Non-O Retirement</span><span class="s">Age 50+. 800k THB or 65k/mo income.</span></div></div>
-        <div class="rt"><span class="idx">05</span><div><span class="b">Non-OA Long-Stay</span><span class="s">Retirement from home country; insurance required.</span></div></div>
-        <div class="rt"><span class="idx">06</span><div><span class="b">Non-O-X (5-year)</span><span class="s">Retirement, limited nationalities, high funds.</span></div></div>
-        <div class="rt"><span class="idx">07</span><div><span class="b">LTR — Wealthy Pensioner</span><span class="s">10 yrs, $80k passive income, tax perks.</span></div></div>
-        <div class="rt"><span class="idx">08</span><div><span class="b">LTR — Work-from-Thailand</span><span class="s">10 yrs, senior remote pros, established employer.</span></div></div>
-        <div class="rt"><span class="idx">09</span><div><span class="b">LTR — Wealthy Global Citizen</span><span class="s">10 yrs, $1M assets incl. $500k in Thailand.</span></div></div>
-        <div class="rt"><span class="idx">10</span><div><span class="b">LTR — Highly-Skilled Pro</span><span class="s">Targeted industries; flat 17% tax.</span></div></div>
-        <div class="rt"><span class="idx">11</span><div><span class="b">Thailand Privilege</span><span class="s">Pay-once membership, 5–20 yrs, no income test.</span></div></div>
-        <div class="rt"><span class="idx">12</span><div><span class="b">Marriage (Non-O)</span><span class="s">Spouse of a Thai citizen. 400k THB or 40k/mo.</span></div></div>
-        <div class="rt"><span class="idx">13</span><div><span class="b">Family / Dependent (Non-O)</span><span class="s">Parent of a Thai child, or dependent of a visa holder.</span></div></div>
-        <div class="rt"><span class="idx">14</span><div><span class="b">Non-B + Work Permit</span><span class="s">Real local work; needs a Thai sponsor or company.</span></div></div>
-        <div class="rt"><span class="idx">15</span><div><span class="b">ED — Education</span><span class="s">Language / course route &amp; common stepping stone.</span></div></div>
-        <div class="rt"><span class="idx">16</span><div><span class="b">SMART Visa</span><span class="s">Skilled experts &amp; startups in targeted sectors.</span></div></div>
-        <div class="rt"><span class="idx">17</span><div><span class="b">Medical (Non-O)</span><span class="s">Long-term treatment at a Thai hospital.</span></div></div>
-        <div class="rt"><span class="idx">18</span><div><span class="b">Volunteer (Non-O)</span><span class="s">Genuine work with an approved NGO / charity.</span></div></div>
+        <a class="rt" href="thailand-visa-exemption.html"><span class="idx">01</span><div class="txt"><span class="b">Visa exemption</span><span class="s">Short visits. 30–60 days (in transition) + one extension.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="thailand-tourist-visa-tr.html"><span class="idx">02</span><div class="txt"><span class="b">Tourist Visa (TR)</span><span class="s">60 days, applied in advance — good for non-exempt passports.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="destination-thailand-visa-dtv.html"><span class="idx">03</span><div class="txt"><span class="b">DTV — Destination Thailand</span><span class="s">Remote workers &amp; soft-power. 5 yrs, 180 days/entry.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="non-o-retirement-visa.html"><span class="idx">04</span><div class="txt"><span class="b">Non-O Retirement</span><span class="s">Age 50+. 800k THB or 65k/mo income.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="non-oa-long-stay-retirement-visa.html"><span class="idx">05</span><div class="txt"><span class="b">Non-OA Long-Stay</span><span class="s">Retirement from home country; insurance required.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="non-o-x-retirement-visa.html"><span class="idx">06</span><div class="txt"><span class="b">Non-O-X (5-year)</span><span class="s">Retirement, limited nationalities, high funds.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="ltr-wealthy-pensioner-visa.html"><span class="idx">07</span><div class="txt"><span class="b">LTR — Wealthy Pensioner</span><span class="s">10 yrs, $80k passive income, tax perks.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="ltr-work-from-thailand-visa.html"><span class="idx">08</span><div class="txt"><span class="b">LTR — Work-from-Thailand</span><span class="s">10 yrs, senior remote pros, established employer.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="ltr-wealthy-global-citizen-visa.html"><span class="idx">09</span><div class="txt"><span class="b">LTR — Wealthy Global Citizen</span><span class="s">10 yrs, $1M assets incl. $500k in Thailand.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="ltr-highly-skilled-professional-visa.html"><span class="idx">10</span><div class="txt"><span class="b">LTR — Highly-Skilled Pro</span><span class="s">Targeted industries; flat 17% tax.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="thailand-privilege-elite-visa.html"><span class="idx">11</span><div class="txt"><span class="b">Thailand Privilege</span><span class="s">Pay-once membership, 5–20 yrs, no income test.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="marriage-non-o-visa.html"><span class="idx">12</span><div class="txt"><span class="b">Marriage (Non-O)</span><span class="s">Spouse of a Thai citizen. 400k THB or 40k/mo.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="family-dependent-non-o-visa.html"><span class="idx">13</span><div class="txt"><span class="b">Family / Dependent (Non-O)</span><span class="s">Parent of a Thai child, or dependent of a visa holder.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="non-b-work-permit-visa.html"><span class="idx">14</span><div class="txt"><span class="b">Non-B + Work Permit</span><span class="s">Real local work; needs a Thai sponsor or company.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="education-ed-visa.html"><span class="idx">15</span><div class="txt"><span class="b">ED — Education</span><span class="s">Language / course route &amp; common stepping stone.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="smart-visa.html"><span class="idx">16</span><div class="txt"><span class="b">SMART Visa</span><span class="s">Skilled experts &amp; startups in targeted sectors.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="medical-non-o-visa.html"><span class="idx">17</span><div class="txt"><span class="b">Medical (Non-O)</span><span class="s">Long-term treatment at a Thai hospital.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
+        <a class="rt" href="volunteer-non-o-visa.html"><span class="idx">18</span><div class="txt"><span class="b">Volunteer (Non-O)</span><span class="s">Genuine work with an approved NGO / charity.</span></div><span class="rt-go"><span class="lbl">Guide</span><span class="a">→</span></span></a>
       </div>
       <div style="text-align:center;margin-top:44px;" class="rv">
         <button class="cta" onclick="startQuiz()">Find My Visa <span class="arrow">→</span></button>
