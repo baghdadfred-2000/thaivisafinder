@@ -1,0 +1,4 @@
+# Collapse duplicate .html URLs to the clean canonical form (301).
+# Netlify / Cloudflare Pages process this file top-to-bottom; first match wins.
+/index.html            /                       301!
+/*.html                /:splat                  301!
