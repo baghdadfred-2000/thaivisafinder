@@ -7,9 +7,6 @@
      <script src="/assets/site.js" defer></script>  (before </body>)
    ========================================================= */
 
-/* One footer ad slot (160x300, highperformanceformat). */
-var TVF_AD =
-  '<iframe title="Advertisement" width="160" height="300" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="border:0;display:block;overflow:hidden" srcdoc=\'<body style="margin:0;overflow:hidden"><script type="text/javascript">atOptions = {"key":"9fb5ed3f58327b9ed9e9acd4af62f648","format":"iframe","height":300,"width":160,"params":{}};</script><script type="text/javascript" src="https://www.highperformanceformat.com/9fb5ed3f58327b9ed9e9acd4af62f648/invoke.js"></script></body>\'></iframe>';
 
 /* MailerLite subscribe block (same form/list as ThaiThuk, tagged
    Company=ThaiVisaFinder so signups are traceable to this site). */
@@ -50,7 +47,7 @@ function footerHTML() {
      <body data-no-signup>. */
   var showSignup = !(document.body && document.body.hasAttribute('data-no-signup'));
   return `
-  <footer data-xadr-footer><div class="xadr xadr-l" aria-label="Advertisement">${TVF_AD}</div><div class="xadr xadr-r" aria-label="Advertisement">${TVF_AD}</div>
+  <footer>
     <div class="wrap">
       <div class="fgrid">
         <div style="max-width:340px;">
@@ -81,9 +78,9 @@ function footerHTML() {
           <nav class="legal-links" aria-label="Legal">
             <a href="/privacy">Privacy</a>
             <a href="/terms">Terms</a>
-            <a href="/#cookies">Cookies</a>
-            <a href="/#accessibility">Accessibility</a>
-            <a href="/#cookie-settings">Cookie Settings</a>
+            <a href="/cookies">Cookies</a>
+            <a href="/accessibility">Accessibility</a>
+            <a href="/cookie-settings">Cookie Settings</a>
           </nav>
         </div>
       </div>
@@ -142,6 +139,28 @@ function initMailerLite() {
   } catch (e) {}
 }
 
+/* ---------- GOOGLE ADSENSE ----------
+   Any element with data-ad-slot becomes a responsive AdSense unit. The
+   adsbygoogle.js loader (with Google's CMP for EEA/UK consent) is included in
+   the <head> of pages that carry ads. */
+var TVF_ADSENSE_CLIENT = 'ca-pub-2738929737632064';
+function tvfLoadAd(el) {
+  if (!el || !el.getAttribute) return;
+  var slot = el.getAttribute('data-ad-slot');
+  if (!slot || el.getAttribute('data-ad-filled')) return;
+  el.setAttribute('data-ad-filled', '1');
+  var ins = document.createElement('ins');
+  ins.className = 'adsbygoogle';
+  ins.style.cssText = 'display:block;margin:0 auto;text-align:center';
+  ins.setAttribute('data-ad-client', TVF_ADSENSE_CLIENT);
+  ins.setAttribute('data-ad-slot', slot);
+  ins.setAttribute('data-ad-format', 'auto');
+  ins.setAttribute('data-full-width-responsive', 'true');
+  el.appendChild(ins);
+  try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+}
+function tvfLoadAds() { document.querySelectorAll('[data-ad-slot]').forEach(tvfLoadAd); }
+
 /* ---------- BOOT ---------- */
 document.addEventListener('DOMContentLoaded', function () {
   if (!document.getElementById('tvf-footer-css')) {
@@ -153,4 +172,5 @@ document.addEventListener('DOMContentLoaded', function () {
   var f = document.getElementById('site-footer');
   if (f) f.outerHTML = footerHTML();
   initMailerLite();
+  tvfLoadAds();
 });

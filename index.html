@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-<style class="xad-off">.xadr,.ad-rail,.side-rail,.rail-ad,.wz-rail{display:none!important}</style>
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script>(function(){try{var t=localStorage.getItem("tvf-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();function toggleTheme(){var h=document.documentElement,n=h.getAttribute("data-theme")==="dark"?"light":"dark";h.setAttribute("data-theme",n);try{localStorage.setItem("tvf-theme",n);}catch(e){}}</script>
 <meta charset="UTF-8">
@@ -802,110 +801,7 @@ footer .legal b{color:#C0C1DE;}
     <h2>The family</h2>
     <p>This is a sibling to <a href="https://thaiholidaybudget.com/" target="_blank" rel="noopener">Uncle Pong's Thailand Holiday Estimator</a>, where I help you budget a trip down to the last baht. Same uncle, same straight talk.</p>
     <h2>Important</h2>
-    <p>I know Thailand, but I'm not a lawyer and rules here change like Bangkok traffic. Everything here is for information and planning only — see the <button class="flink" style="color:var(--jade);display:inline;text-decoration:underline" onclick="showPage('terms')">Terms &amp; Disclaimer</button>. Always confirm with official Thai sources or a licensed immigration lawyer before you act.</p>
-  </div>
-</div>
-
-<!-- ============ PRIVACY ============ -->
-<div class="page" id="page-privacy">
-  <div class="doc">
-    <span class="eyebrow">Legal</span>
-    <h1>Privacy Policy</h1>
-    <p class="upd">Last updated June 2026</p>
-    <p>We take privacy as seriously as you do. Here's the honest, plain-English version.</p>
-    <h2>What we collect</h2>
-    <p><b>Effectively nothing about you personally.</b> The Visa Finder runs entirely in your browser. Your answers are used on your device to generate your result and are not sent to a server, sold, or used to build a profile of you.</p>
-    <h2>Local storage</h2>
-    <p>We may use a small amount of local storage on your own device to remember your cookie choice and, if offered, your last result — so you don't have to start over. This stays on your device and is never transmitted to us. You control it from <button class="flink" style="color:var(--jade);display:inline;text-decoration:underline" onclick="showPage('cookie-settings')">Cookie Settings</button>.</p>
-    <h2>Analytics &amp; advertising</h2>
-    <p>This site may display ads served by Adsterra, which can use cookies to show relevant ads. You can review Adsterra’s practices in its <a href="https://adsterra.com/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>. Full details are in our <a href="/privacy">Privacy Policy</a> and <button class="flink" style="color:var(--jade);display:inline;text-decoration:underline" onclick="showPage('cookies')">Cookie Policy</button>.</p>
-    <h2>Third parties</h2>
-    <p>We load fonts from Google Fonts and may link out to official Thai government sites and our sister site. Those have their own privacy policies. We don't share your data with them because we don't have it.</p>
-    <h2>Your rights &amp; contact</h2>
-    <p>Since we don't hold personal data, there's little to request — but you can clear local storage any time via your browser or our Cookie Settings. Questions? Reach the operator, Genext Information Systems, via our <a href="/contact">Contact page</a>.</p>
-  </div>
-</div>
-
-<!-- ============ COOKIE POLICY ============ -->
-<div class="page" id="page-cookies">
-  <div class="doc">
-    <span class="eyebrow">Legal</span>
-    <h1>Cookie Policy</h1>
-    <p class="upd">Last updated June 2026</p>
-    <p>We keep cookies to a bare minimum — no tracking, no ad networks.</p>
-    <h2>Strictly necessary <span style="color:var(--jade);font-size:.8rem;">(always on)</span></h2>
-    <p>A tiny bit of local storage saves your cookie choice and, where offered, your in-progress answers — on this device only, never sent to a server. The tool can't function sensibly without it.</p>
-    <h2>Analytics <span style="color:var(--ink-soft);font-size:.8rem;">(off by default)</span></h2>
-    <p>Anonymous, aggregated usage stats to improve the tool. Not currently used. If switched on, no personally identifying information is collected.</p>
-    <h2>Advertising / marketing <span style="color:var(--ink-soft);font-size:.8rem;">(off by default)</span></h2>
-    <p>Ad personalisation. Not currently used, and off unless you explicitly enable it.</p>
-    <p>Manage all of this any time in <button class="flink" style="color:var(--jade);display:inline;text-decoration:underline" onclick="showPage('cookie-settings')">Cookie Settings</button>.</p>
-  </div>
-</div>
-
-<!-- ============ COOKIE SETTINGS ============ -->
-<div class="page" id="page-cookie-settings">
-  <div class="doc">
-    <span class="eyebrow">Your choices</span>
-    <h1>Cookie Settings</h1>
-    <p class="upd">Analytics and advertising are off by default — the switches are yours.</p>
-    <div class="toggle-row">
-      <div><div class="tg-t">Strictly necessary</div><div class="tg-d">Saves your in-progress answers and your cookie choice — on this device only.</div></div>
-      <span class="lock">Always on</span>
-    </div>
-    <div class="toggle-row">
-      <div><div class="tg-t">Analytics</div><div class="tg-d">Anonymous usage stats to improve the tool. Not currently used.</div></div>
-      <button class="sw" id="sw-analytics" role="switch" aria-checked="false" aria-label="Analytics cookies" onclick="toggleSw('analytics')"></button>
-    </div>
-    <div class="toggle-row">
-      <div><div class="tg-t">Advertising / marketing</div><div class="tg-d">Ad personalisation. Not currently used.</div></div>
-      <button class="sw" id="sw-ads" role="switch" aria-checked="false" aria-label="Advertising cookies" onclick="toggleSw('ads')"></button>
-    </div>
-    <div class="save-row">
-      <button class="btn-solid" onclick="saveCookieChoices()">Save choices</button>
-      <button class="btn-ghost" onclick="acceptAllCookies()">Accept all</button>
-    </div>
-    <p style="font-size:.8rem;color:var(--ink-soft);margin-top:18px;">Note: in this preview your choice is remembered for the session only. On the live site it's stored on your device.</p>
-  </div>
-</div>
-
-<!-- ============ TERMS ============ -->
-<div class="page" id="page-terms">
-  <div class="doc">
-    <span class="eyebrow">Legal</span>
-    <h1>Terms &amp; Disclaimer</h1>
-    <p class="upd">Last updated June 2026</p>
-    <div class="callout"><span class="em">⚠️</span><p><b>This is information, not legal advice.</b> ThaiVisaFinder is an independent informational tool. It is not legal, tax, financial, or immigration advice, and it is not affiliated with the Thai government, any embassy, or any visa agency.</p></div>
-    <h2>Rules change — verify everything</h2>
-    <p>Thai immigration rules, fees, financial thresholds and eligibility change frequently and are applied at the discretion of individual officers. Figures here are mid-2026 estimates shown as ranges and will vary by embassy, province, exchange rate and your circumstances. The visa-exemption rules in particular are mid-change (the 60→30 day rollback). Always confirm current requirements with the <a href="https://www.thaievisa.go.th/" target="_blank" rel="noopener">Thai e-Visa portal</a>, the <a href="https://www.mfa.go.th/en" target="_blank" rel="noopener">Ministry of Foreign Affairs</a>, the <a href="https://ltr.boi.go.th/" target="_blank" rel="noopener">Board of Investment</a> (for LTR), or a licensed Thai immigration lawyer before acting or paying anyone.</p>
-    <h2>No guarantee</h2>
-    <p>Recommendations are generated by an automated model from the answers you give. They do not guarantee visa approval, eligibility, or any particular cost. Use them as a starting point for your own research, not a decision.</p>
-    <h2>No liability</h2>
-    <p>To the maximum extent permitted by law, the operator (Genext Information Systems) accepts no liability for any loss arising from reliance on this tool. You use it at your own risk and remain responsible for your own immigration decisions.</p>
-    <h2>Beware scams</h2>
-    <p>Never pay for the free TDAC arrival card. Use only official government portals or authorised agents, and verify an agent's credentials directly with the issuing authority.</p>
-  </div>
-</div>
-
-<!-- ============ ACCESSIBILITY ============ -->
-<div class="page" id="page-accessibility">
-  <div class="doc">
-    <span class="eyebrow">Commitment</span>
-    <h1>Accessibility</h1>
-    <p class="upd">Last updated June 2026</p>
-    <p>We want everyone to be able to use this, whoever you are and however you browse.</p>
-    <h2>What we've built in</h2>
-    <ul>
-      <li>Keyboard navigation throughout, with visible focus outlines.</li>
-      <li>A skip-to-content link for screen-reader and keyboard users.</li>
-      <li>Semantic headings and ARIA labels on interactive controls and the questionnaire.</li>
-      <li>Colour contrast aimed at WCAG AA for body text, plus meaning never carried by colour alone (icons and labels back it up).</li>
-      <li>Large touch targets and a layout that reflows cleanly down to small phones.</li>
-      <li>Respect for your <span class="mono">prefers-reduced-motion</span> setting — animations switch off if you've asked your device to reduce motion.</li>
-      <li>Descriptive alternative text on images of the mascot and of destinations.</li>
-    </ul>
-    <h2>Still not right for you?</h2>
-    <p>Accessibility is never "done." If something here is hard to use with assistive technology, tell the operator (Genext Information Systems) via our <a href="/contact">Contact page</a> and we'll fix it.</p>
+    <p>I know Thailand, but I'm not a lawyer and rules here change like Bangkok traffic. Everything here is for information and planning only — see the <button class="flink" style="color:var(--jade);display:inline;text-decoration:underline" onclick="location.href='/terms'">Terms &amp; Disclaimer</button>. Always confirm with official Thai sources or a licensed immigration lawyer before you act.</p>
   </div>
 </div>
 
@@ -963,22 +859,12 @@ footer .legal b{color:#C0C1DE;}
       </div></div>
 
       <div class="disclaimer" style="margin-top:32px;">
-        <b>The small print.</b> This is an independent, informational tool — not legal, tax, financial or immigration advice, and not affiliated with the Thai government or any visa agency. Thai rules change constantly and are applied at an officer's discretion; figures are mid-2026 estimates in ranges and vary by embassy, province, exchange rate and your circumstances (the visa-exemption rules are mid-change right now). Always confirm with the Thai Ministry of Foreign Affairs, the e-Visa portal, the Board of Investment (LTR), or a licensed Thai immigration lawyer before acting. See the <button class="flink" style="color:var(--jade);display:inline;text-decoration:underline;background:none;border:none;padding:0;font:inherit;cursor:pointer" onclick="showPage('terms')">Terms &amp; Disclaimer</button>.
+        <b>The small print.</b> This is an independent, informational tool — not legal, tax, financial or immigration advice, and not affiliated with the Thai government or any visa agency. Thai rules change constantly and are applied at an officer's discretion; figures are mid-2026 estimates in ranges and vary by embassy, province, exchange rate and your circumstances (the visa-exemption rules are mid-change right now). Always confirm with the Thai Ministry of Foreign Affairs, the e-Visa portal, the Board of Investment (LTR), or a licensed Thai immigration lawyer before acting. See the <button class="flink" style="color:var(--jade);display:inline;text-decoration:underline;background:none;border:none;padding:0;font:inherit;cursor:pointer" onclick="location.href='/terms'">Terms &amp; Disclaimer</button>.
       </div>
     </div>
   </section>
 </div>
 
-<!-- ===== AD BANNER (above footer) ===== -->
-<style>
-  .ad-banner-zone{width:100%;margin:44px auto 0;padding:0 22px;box-sizing:border-box;display:flex;justify-content:center;}
-  .ad-banner-zone iframe{border:0;display:block;overflow:hidden;max-width:100%;}
-  @media(max-width:768px){.ad-banner-zone{padding:0 10px;}.ad-banner-zone iframe{overflow-x:auto;}}
-</style>
-<div class="ad-banner-zone" aria-label="Advertisement">
-  <iframe title="Advertisement" width="728" height="90" scrolling="no" frameborder="0" srcdoc='<body style="margin:0"><script type="text/javascript">atOptions={"key":"167029ed1bd365dff490be4d9d295756","format":"iframe","height":90,"width":728,"params":{}};</script><script type="text/javascript" src="https://www.highperformanceformat.com/167029ed1bd365dff490be4d9d295756/invoke.js"></script><style class="xadr-fix">.xadr{position:absolute!important;top:auto!important;bottom:calc(100% + 100px)!important;width:160px!important;z-index:40;line-height:0}.xadr iframe{border:0;display:block;overflow:hidden}.xadr-l{left:calc(50% - 616px)!important;right:auto!important}.xadr-r{right:calc(50% - 616px)!important;left:auto!important}@media(max-width:1240px){.xadr{display:none!important}}[data-xadr-footer]{position:relative}</style>
-</body>'></iframe>
-</div>
 
 <!-- ===== FOOTER ===== -->
 <div id="site-footer"></div>
@@ -987,9 +873,9 @@ footer .legal b{color:#C0C1DE;}
 <!-- ===== COOKIE BANNER ===== -->
 <div class="cookie" id="cookieBanner" role="dialog" aria-label="Cookie notice">
   <div class="wrap inner">
-    <div class="txt">🍪 <b>A tiny bit of local storage</b> keeps your answers on this device. No tracking, no ads. <button class="flink" style="color:var(--jade);display:inline;text-decoration:underline" onclick="showPage('cookies')">Details</button></div>
+    <div class="txt">🍪 <b>A tiny bit of local storage</b> keeps your answers on this device. No tracking, no ads. <button class="flink" style="color:var(--jade);display:inline;text-decoration:underline" onclick="location.href='/cookies'">Details</button></div>
     <div class="btns">
-      <button class="ck-custom" onclick="showPage('cookie-settings')">Customise</button>
+      <button class="ck-custom" onclick="location.href='/cookie-settings'">Customise</button>
       <button class="ck-reject" onclick="rejectCookies()">Reject all</button>
       <button class="ck-accept" onclick="acceptAllCookies()">Accept all</button>
     </div>
@@ -1041,10 +927,6 @@ function showPage(id){
 }
 function goHome(){ showPage('home'); }
 function scrollToId(id){ const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth'}); }
-/* Open a legal/info SPA page when landed via footer link like /#cookies */
-function routeFromHash(){ var h=(location.hash||'').replace(/^#/,''); if(h && document.getElementById('page-'+h)) showPage(h); }
-window.addEventListener('hashchange', routeFromHash);
-document.addEventListener('DOMContentLoaded', routeFromHash);
 
 /* ============ QUESTION MODEL ============ */
 const Q=[

@@ -4,19 +4,21 @@
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <script>(function(){try{var t=localStorage.getItem("tvf-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();function toggleTheme(){var h=document.documentElement,n=h.getAttribute("data-theme")==="dark"?"light":"dark";h.setAttribute("data-theme",n);try{localStorage.setItem("tvf-theme",n);}catch(e){}}</script>
 <meta charset="UTF-8">
+<meta name="google-adsense-account" content="ca-pub-2738929737632064">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2738929737632064" crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#181845">
-<title>About Thailand Visa Finder & Uncle Pong | Who We Are</title>
-<meta name="description" content="Who is behind Thailand Visa Finder: an independent, free tool by Genext Information Systems comparing all 18 legal Thailand long-stay visas honestly.">
+<title>Accessibility | Thailand Visa Finder</title>
+<meta name="description" content="Thailand Visa Finder's accessibility commitment: WCAG 2.1 AA aims, keyboard navigation, contrast, reduced-motion support and how to reach us.">
 <meta name="author" content="Uncle Pong's Thailand (Genext Information Systems)">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://thaivisafinder.com/about">
+<link rel="canonical" href="https://thaivisafinder.com/accessibility">
 <link rel="icon" type="image/png" href="logo.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Uncle Pong's Thailand Visa Finder">
-<meta property="og:title" content="About Thailand Visa Finder & Uncle Pong | Who We Are">
-<meta property="og:description" content="Who is behind Thailand Visa Finder: an independent, free tool by Genext Information Systems comparing all 18 legal Thailand long-stay visas honestly.">
-<meta property="og:url" content="https://thaivisafinder.com/about">
+<meta property="og:title" content="Accessibility | Thailand Visa Finder">
+<meta property="og:description" content="Thailand Visa Finder's accessibility commitment: WCAG 2.1 AA aims, keyboard navigation, contrast, reduced-motion support and how to reach us.">
+<meta property="og:url" content="https://thaivisafinder.com/accessibility">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -145,48 +147,36 @@ footer a:hover{color:#fff;text-decoration:underline;}
   </div>
 </header>
 <main id="main">
-<!-- ===== SIDE RAILS (beside content, in gutter) ===== -->
-<style>
-  #main{position:relative;}
-  .side-rail{position:absolute;bottom:40px;width:160px;z-index:5;line-height:0;}
-  .side-rail iframe{border:0;display:block;overflow:hidden;}
-  .side-rail-left{left:calc(50% - (var(--maxw) / 2) - 176px);}
-  .side-rail-right{right:calc(50% - (var(--maxw) / 2) - 176px);}
-  @media(max-width:1199px){.side-rail{display:none;}}
-</style>
-
-
   <div class="wrap">
     <div class="card">
-      <span class="eyebrow">About</span>
-      <h1>About Thailand Visa Finder &amp; Uncle Pong</h1>
-      <p class="upd">Independent · Visa data reviewed June 2026 · Operated by Genext Information Systems</p>
+      <span class="eyebrow">Commitment</span>
+      <h1>Accessibility</h1>
+      <p class="upd">Last updated July 2026</p>
 
-      <p>Thailand Visa Finder is an independent, free planning tool that weighs all 18 legal long-stay visa routes against your real situation and gives you a clear Good / Better / Best recommendation — with honest 2026 cost ranges, the drawbacks most sites skip, and where in Thailand you might actually be happiest. The friendly guide who walks you through it is “Uncle Pong,” our cartoon mascot: the straight-talking Thai uncle who has watched foreigners arrive, settle, and occasionally get into beautiful trouble for forty years.</p>
+      <p>We want everyone to be able to use Thailand Visa Finder — whoever you are and however you browse. We aim to meet the spirit of the WCAG 2.1 AA guidelines and keep improving.</p>
 
-      <h2>Who is behind this site</h2>
-      <p>The site is built and maintained by <strong>Genext Information Systems</strong>, an independent web publisher that creates practical reference and utility tools for people moving to, travelling in, or living long-term in Thailand. We are based in Thailand and have spent years building software, working with data, and helping people cut through confusing official processes. We are not a visa agency, a law firm, or a government body, and we have no commercial relationship with any of the visa routes we describe.</p>
+      <h2>What we've built in</h2>
+      <ul>
+        <li>Keyboard navigation throughout, with visible focus outlines.</li>
+        <li>A skip-to-content link for screen-reader and keyboard users.</li>
+        <li>Semantic headings and landmarks, plus ARIA labels on menus, the questionnaire and forms.</li>
+        <li>Colour contrast aimed at WCAG AA for body text, and a light/dark theme you control.</li>
+        <li>Meaning never carried by colour alone — icons and text labels back it up.</li>
+        <li>Large touch targets and a responsive layout that reflows cleanly down to small phones.</li>
+        <li>Respect for your <em>prefers-reduced-motion</em> setting, so animations ease off if you've asked your device to reduce motion.</li>
+        <li>Descriptive alternative text on meaningful images.</li>
+      </ul>
 
-      <h2>Why we built it (our experience)</h2>
-      <p>Choosing how to stay in Thailand legally is one of the biggest decisions a long-stayer makes — yet most websites covering it are run by agencies that earn a commission steering you toward one product. That is not advice; it is a sales pitch with a smile. We have personally navigated Thai immigration offices, bank-balance requirements, extensions, and the constant rule changes, and we got tired of seeing newcomers pushed toward the wrong visa simply because it paid someone a referral fee.</p>
-      <p>So we built the tool we wished existed: one that compares <strong>every</strong> legal route — even the cheap ones nobody profits from sending you to — screens each against hard eligibility gates (age, bank balances, income thresholds, work rights, family status), and then explains the trade-offs in plain language.</p>
+      <h2>Third-party content</h2>
+      <p>Some content we don't fully control — most notably the advertising served by Google AdSense — may not always meet the same accessibility standards. You can review or change your ad-personalisation choices at any time in <a href="/cookie-settings">Cookie Settings</a>.</p>
 
-      <div class="callout"><span class="em">🤝</span><p><strong>Our promise:</strong> honest over salesy, every time. If a cheaper or simpler route fits you better, that is the one we will show you — even if it is the one nobody makes money from. We would rather tell you “now isn’t your time” than watch a move go wrong.</p></div>
-
-      <h2>How we keep it accurate</h2>
-      <p>Every figure on this site is reviewed against official Thai sources — including the <a href="https://www.thaievisa.go.th/" target="_blank" rel="noopener">Thai e-Visa portal</a>, the <a href="https://www.mfa.go.th/en" target="_blank" rel="noopener">Ministry of Foreign Affairs</a>, and the <a href="https://ltr.boi.go.th/" target="_blank" rel="noopener">Board of Investment</a> for LTR visas — and dated so you can see how current it is. Thai immigration rules change frequently and are applied at officer discretion, so all costs and thresholds are shown as mid-2026 estimates in ranges, and we tell you to re-verify before acting. When the rules move (such as the 2026 visa-exemption changes), we update the tool and note the date.</p>
-
-      <h2>Part of a small family of tools</h2>
-      <p>Thailand Visa Finder is a sibling to <a href="https://thaiholidaybudget.com/" target="_blank" rel="noopener">Thailand Holiday Budget Estimator</a>, where we help travellers budget a trip down to the last baht. Same independent approach, same straight talk.</p>
-
-      <h2>Important</h2>
-      <p>We know Thailand well, but we are not lawyers, and immigration rules here change like Bangkok traffic. Everything on this site is for information and planning only — see our <a href="/terms">Terms &amp; Disclaimer</a>. Always confirm current requirements with official Thai sources or a licensed immigration lawyer before you act.</p>
-
-      <h2>Get in touch</h2>
-      <p>Questions, corrections, or feedback are genuinely welcome — spotting an out-of-date figure helps everyone. Reach us any time via our <a href="/contact">Contact page</a>.</p>
+      <h2>Still not right for you?</h2>
+      <p>Accessibility is never "done." If anything here is hard to use with assistive technology, please tell us and we'll fix it — use our <a href="/contact">Contact page</a>, and let us know the page and what got in your way.</p>
     </div>
   </div>
 </main>
+
+<div class="wrap" style="margin:26px auto 6px;display:flex;justify-content:center" data-ad-slot="7185454478" aria-label="Advertisement"></div>
 
 <div id="site-footer"></div>
 <script src="/assets/site.js" defer></script>
