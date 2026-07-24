@@ -58,21 +58,35 @@ function footerHTML() {
           ${showSignup ? subscribeHTML() : ''}
         </div>
         <div>
-          <h4>The tools</h4>
-          <a href="/">Visa Finder</a>
+          <h4>Explore</h4>
+          <a href="/about">About ThaiVisaFinder</a>
+          <a href="/">Find My Visa</a>
           <a href="/#faq">Visa FAQ</a>
+          <a href="/#routes">18 Routes</a>
           <a href="/city-guide">City Guide</a>
-          <a href="https://thaiholidaybudget.com/" target="_blank" rel="noopener">Budget Estimator ↗</a>
+          <a href="/contact">Contact</a>
         </div>
         <div>
-          <h4>Site &amp; legal</h4>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms &amp; Disclaimer</a>
+          <h4>Network Sites</h4>
+          <a href="https://thaithuk.com" target="_blank" rel="noopener">ThaiThuk</a>
+          <a href="https://thaiholidaybudget.com" target="_blank" rel="noopener">ThaiHolidayBudget</a>
+          <a href="https://thailetters.com" target="_blank" rel="noopener">Thai Letters</a>
+          <a href="https://thailotterynumbers.com" target="_blank" rel="noopener">ThaiLotteryNumbers</a>
+          <a href="https://thaitripplanner.com" target="_blank" rel="noopener">ThaiTripPlanner</a>
         </div>
       </div>
-      <div class="legal">© 2026 Genext Information Systems. All rights reserved.</div>
+      <div class="legal">
+        <div class="legal-bar">
+          <p class="legal-copy">© 2026 Genext Information Systems. All rights reserved.</p>
+          <nav class="legal-links" aria-label="Legal">
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
+            <a href="/#cookies">Cookies</a>
+            <a href="/#accessibility">Accessibility</a>
+            <a href="/#cookie-settings">Cookie Settings</a>
+          </nav>
+        </div>
+      </div>
     </div>
   </footer>`;
 }
@@ -92,6 +106,12 @@ var TVF_STYLE = `
 .ml-subscribe-form .tvf-sub-btn:hover{border-color:#E8C57C;color:#E8C57C}
 .ml-subscribe-form .tvf-sub-ok{color:#E8C57C;font-weight:600;font-size:.92rem;margin:0}
 .ml-subscribe-form .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+footer .legal .legal-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;}
+footer .legal .legal-copy{margin:0;}
+footer .legal .legal-links{display:flex;flex-wrap:wrap;gap:18px;}
+footer .legal .legal-links a{display:inline;margin:0;color:#7B7EA6;}
+footer .legal .legal-links a:hover{color:#fff;}
+@media(max-width:680px){footer .legal .legal-bar{justify-content:flex-start;}}
 `;
 
 /* MailerLite success callback (swaps form for the thank-you message). */

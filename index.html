@@ -1041,6 +1041,10 @@ function showPage(id){
 }
 function goHome(){ showPage('home'); }
 function scrollToId(id){ const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth'}); }
+/* Open a legal/info SPA page when landed via footer link like /#cookies */
+function routeFromHash(){ var h=(location.hash||'').replace(/^#/,''); if(h && document.getElementById('page-'+h)) showPage(h); }
+window.addEventListener('hashchange', routeFromHash);
+document.addEventListener('DOMContentLoaded', routeFromHash);
 
 /* ============ QUESTION MODEL ============ */
 const Q=[
